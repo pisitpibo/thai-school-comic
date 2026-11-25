@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Things Only Thai Students Understand: A Little Culture, A Lot of Memories</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Kanit, Patrick Hand & Bangers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Kanit:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --paper-cream: #fdf8ee;
+      --ink-dark: #1e293b;
+      --thai-red: #dc2626;
+      --thai-blue: #1e3a8a;
+      --thai-gold: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Kanit', 'Patrick Hand', sans-serif;
+      background-color: #efe4cf;
+      background-image:
+        radial-gradient(rgba(30, 41, 59, 0.08) 1.3px, transparent 1.3px),
+        radial-gradient(rgba(245, 158, 11, 0.08) 1.3px, #efe4cf 1.3px);
+      background-size: 22px 22px;
+      background-position: 0 0, 11px 11px;
+      color: var(--ink-dark);
+      overflow-x: hidden;
+    }
+
+    .font-bangers {
+      font-family: 'Bangers', cursive;
+      letter-spacing: 0.05em;
+    }
+
+    .font-hand {
+      font-family: 'Patrick Hand', cursive, sans-serif;
+    }
+
+    .font-kanit {
+      font-family: 'Kanit', sans-serif;
+    }
+
+    /* Cream Comic Sheet */
+    .comic-sheet {
+      background-color: var(--paper-cream);
+      background-image: radial-gradient(rgba(160, 128, 84, 0.14) 1px, transparent 0);
+      background-size: 14px 14px;
+      border: 4px solid var(--ink-dark);
+      box-shadow: 9px 9px 0px var(--ink-dark);
+      border-radius: 18px;
+      position: relative;
+    }
+
+    /* Individual Comic Panel */
+    .comic-panel {
+      position: relative;
+      border: 3.5px solid var(--ink-dark);
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 5px 5px 0px var(--ink-dark);
+      overflow: hidden;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .comic-panel:hover {
+      transform: translateY(-2px);
+    }
+
+    @keyframes panelPopIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.97) translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .animate-panel {
+      animation: panelPopIn 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .delay-1 { animation-delay: 0.03s; }
+    .delay-2 { animation-delay: 0.08s; }
+    .delay-3 { animation-delay: 0.13s; }
+    .delay-4 { animation-delay: 0.18s; }
+    .delay-5 { animation-delay: 0.23s; }
+
+    /* Chapter Banner */
+    .chapter-banner {
+      background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
+      border: 3.5px solid var(--ink-dark);
+      box-shadow: 4px 4px 0px var(--ink-dark);
+      border-radius: 12px;
+      transform: rotate(-0.5deg);
+    }
+
+    /* Narrative Panel Tag */
+    .caption-box {
+      position: absolute;
+      z-index: 16;
+      background: #fef08a;
+      border: 2.5px solid var(--ink-dark);
+      box-shadow: 2.5px 2.5px 0px var(--ink-dark);
+      border-radius: 7px;
+      padding: 2px 9px;
+      font-family: 'Kanit', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--ink-dark);
+      user-select: none;
+    }
+
+    /* Speech Bubbles with Pointers */
+    .speech-bubble {
+      position: absolute;
+      background: #ffffff;
+      border: 3px solid var(--ink-dark);
+      border-radius: 18px;
+      padding: 7px 12px;
+      font-family: 'Patrick Hand', cursive, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--ink-dark);
+      box-shadow: 3px 3px 0px rgba(30, 41, 59, 0.9);
+      z-index: 15;
+      user-select: none;
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .tail-bl::after {
+      bottom: -12px;
+      left: 20px;
+      border-width: 12px 10px 0 0;
+      border-color: var(--ink-dark) transparent transparent transparent;
+    }
+    .tail-bl::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 22px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 7px 0 0;
+      border-color: #ffffff transparent transparent transparent;
+      z-index: 2;
+    }
+
+    .tail-br::after {
+      bottom: -12px;
+      right: 20px;
+      border-width: 12px 0 0 10px;
+      border-color: var(--ink-dark) transparent transparent transparent;
+    }
+    .tail-br::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 22px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 0 0 7px;
+      border-color: #ffffff transparent transparent transparent;
+      z-index: 2;
+    }
+
+    .shout-bubble {
+      background: #fffbeb;
+      border-color: #dc2626;
+      box-shadow: 3px 3px 0px #dc2626;
+    }
+
+    .thought-bubble {
+      border-style: dashed;
+      background: #f8fafc;
+    }
+
+    /* Interactive SFX Badges */
+    .sfx-burst {
+      position: absolute;
+      z-index: 20;
+      font-family: 'Bangers', cursive;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.15s ease;
+      filter: drop-shadow(3px 3px 0px var(--ink-dark));
+    }
+
+    .sfx-burst:hover {
+      transform: scale(1.09) rotate(-2deg);
+    }
+
+    @keyframes sfxShake {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      20% { transform: scale(1.24) rotate(-6deg); }
+      40% { transform: scale(1.18) rotate(6deg); }
+      60% { transform: scale(1.24) rotate(-4deg); }
+      80% { transform: scale(1.1) rotate(3deg); }
+    }
+
+    .sfx-active {
+      animation: sfxShake 0.45s ease-in-out;
+    }
+
+    /* Comic Buttons */
+    .comic-btn {
+      border: 3px solid var(--ink-dark);
+      box-shadow: 3.5px 3.5px 0px var(--ink-dark);
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .comic-btn:hover:not(:disabled) {
+      transform: translate(-1px, -1px);
+      box-shadow: 4.5px 4.5px 0px var(--ink-dark);
+    }
+
+    .comic-btn:active:not(:disabled) {
+      transform: translate(2.5px, 2.5px);
+      box-shadow: 1px 1px 0px var(--ink-dark);
+    }
+
+    .comic-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .narrative-scroll {
+      background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%);
+      border: 3.5px solid var(--ink-dark);
+      box-shadow: 4px 4px 0px var(--ink-dark);
+      border-radius: 14px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #efe4cf;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 999px;
+      border: 2px solid #efe4cf;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- Sticky Header & Navigation -->
+  <header class="sticky top-0 z-40 bg-[#fdf8ee]/95 backdrop-blur-sm border-b-4 border-[#1e293b] px-3 py-2.5 shadow-md">
+    <div class="max-w-5xl mx-auto flex flex-col gap-2">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <button onclick="goToPage(0)" class="flex items-center gap-2.5 text-left group focus:outline-none">
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-red-600 border-2 border-[#1e293b] text-white font-bangers text-xl shadow-[2px_2px_0px_#1e293b] group-hover:scale-105 transition">
+            TH
+          </span>
+          <div>
+            <h1 class="font-bangers text-xl sm:text-2xl leading-none text-[#1e293b] tracking-wide">
+              Things Only Thai Students Understand
+            </h1>
+            <p class="text-[11px] sm:text-xs font-semibold text-amber-800 leading-tight">
+              A Little Culture, A Lot of Memories • Interactive Webtoon Edition
+            </p>
+          </div>
+        </button>
+
+        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <button id="viewModeBtn" onclick="toggleViewMode()" class="comic-btn bg-amber-300 hover:bg-amber-400 px-2.5 py-1 text-xs sm:text-sm flex items-center gap-1.5">
+            <span id="viewModeIcon">📜</span>
+            <span id="viewModeLabel">All Pages Scroll</span>
+          </button>
+
+          <button id="sfxToggleBtn" onclick="toggleSound()" class="comic-btn bg-emerald-200 hover:bg-emerald-300 px-2.5 py-1 text-xs sm:text-sm flex items-center gap-1" title="Toggle Web Audio Comic SFX">
+            <span id="sfxIcon">🔊</span>
+            <span id="sfxLabel">SFX: ON</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-amber-900/15">
+        <nav aria-label="Comic Page Selector" class="flex items-center gap-1 sm:gap-1.5 overflow-x-auto pb-0.5">
+          <button onclick="goToPage(0)" data-pill="0" class="page-pill comic-btn px-2.5 py-1 text-xs whitespace-nowrap">
+            Cover &amp; Cast
+          </button>
+          <button onclick="goToPage(1)" data-pill="1" class="page-pill comic-btn px-2.5 py-1 text-xs whitespace-nowrap">
+            Ch. 1: Teasing Friends
+          </button>
+          <button onclick="goToPage(2)" data-pill="2" class="page-pill comic-btn px-2.5 py-1 text-xs whitespace-nowrap">
+            Ch. 2: Rubber-Band Games
+          </button>
+          <button onclick="goToPage(3)" data-pill="3" class="page-pill comic-btn px-2.5 py-1 text-xs whitespace-nowrap">
+            Ch. 3: After School
+          </button>
+        </nav>
+
+        <span class="hidden md:inline-flex items-center gap-1 text-[11px] font-semibold text-amber-900/80">
+          ⌨️ Arrow keys or swipe to flip • Tap glowing SFX badges for sound!
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Comic Book Stage -->
+  <main id="comicStage" class="flex-1 w-full max-w-5xl mx-auto px-3 sm:px-6 py-5 sm:py-7">
+
+    <!-- ==================== PAGE 0: COVER & CAST ==================== -->
+    <section data-page="0" class="comic-page comic-sheet p-4 sm:p-7 mb-8">
+      <!-- Illustrated Cover Card -->
+      <div class="relative rounded-2xl border-4 border-[#1e293b] overflow-hidden bg-gradient-to-b from-sky-300 via-sky-100 to-amber-100 p-4 sm:p-6 shadow-[6px_6px_0px_#1e293b]">
+        <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#1e293b 1.2px, transparent 1.2px); background-size: 12px 12px;"></div>
+
+        <!-- Top Row: Thai Flag + Golden Thai Temple Roof -->
+        <div class="relative z-10 flex items-start justify-between gap-2 mb-2">
+          <!-- Waving Thai Flag SVG -->
+          <svg viewBox="0 0 135 92" class="w-24 sm:w-32 h-auto drop-shadow-[3px_3px_0px_#1e293b] -rotate-2">
+            <rect x="8" y="6" width="5" height="82" rx="2.5" fill="#78350f" stroke="#1e293b" stroke-width="2.5" />
+            <circle cx="10.5" cy="5" r="4" fill="#fbbf24" stroke="#1e293b" stroke-width="2" />
+            <path d="M13 12 Q42 5, 68 12 T124 12 L124 22 Q95 28, 68 22 T13 22 Z" fill="#dc2626" />
+            <path d="M13 22 Q42 15, 68 22 T124 22 L124 32 Q95 38, 68 32 T13 32 Z" fill="#ffffff" />
+            <path d="M13 32 Q42 25, 68 32 T124 32 L124 52 Q95 58, 68 52 T13 52 Z" fill="#1e3a8a" />
+            <path d="M13 52 Q42 45, 68 52 T124 52 L124 62 Q95 68, 68 62 T13 62 Z" fill="#ffffff" />
+            <path d="M13 62 Q42 55, 68 62 T124 62 L124 72 Q95 78, 68 72 T13 72 Z" fill="#dc2626" />
+            <path d="M13 12 Q42 5, 68 12 T124 12 L124 72 Q95 78, 68 72 T13 72 Z" fill="none" stroke="#1e293b" stroke-width="3" stroke-linejoin="round" />
+          </svg>
+
+          <div class="hidden sm:flex flex-col items-center bg-white border-3 border-[#1e293b] px-4 py-1 rounded-full shadow-[3px_3px_0px_#1e293b] mt-1">
+            <span class="font-bangers text-sm text-red-600 tracking-wider">THAI SCHOOL WEBTOON • 3 FULL CHAPTERS</span>
+          </div>
+
+          <!-- Golden Thai Temple Roof SVG -->
+          <svg viewBox="0 0 155 105" class="w-28 sm:w-36 h-auto drop-shadow-[3px_3px_0px_#1e293b]">
+            <ellipse cx="30" cy="24" rx="18" ry="8" fill="#ffffff" stroke="#1e293b" stroke-width="2" />
+            <ellipse cx="126" cy="20" rx="16" ry="7" fill="#ffffff" stroke="#1e293b" stroke-width="2" />
+            <path d="M77 6 L84 32 L70 32 Z" fill="#f59e0b" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round" />
+            <path d="M42 52 Q60 44, 77 28 Q94 44, 112 52 L100 56 L54 56 Z" fill="#dc2626" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round" />
+            <path d="M40 52 Q58 43, 77 27 Q96 43, 114 52" fill="none" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M24 72 Q52 60, 77 44 Q102 60, 130 72 L118 76 L36 76 Z" fill="#b91c1c" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round" />
+            <path d="M22 72 Q52 59, 77 43 Q102 59, 132 72" fill="none" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" />
+            <rect x="38" y="76" width="78" height="24" fill="#fef3c7" stroke="#1e293b" stroke-width="2.5" />
+            <rect x="46" y="76" width="6" height="24" fill="#f59e0b" stroke="#1e293b" stroke-width="2" />
+            <rect x="68" y="78" width="18" height="22" rx="2" fill="#991b1b" stroke="#1e293b" stroke-width="2" />
+            <rect x="102" y="76" width="6" height="24" fill="#f59e0b" stroke="#1e293b" stroke-width="2" />
+          </svg>
+        </div>
+
+        <!-- Cover Title Banner -->
+        <div class="relative z-10 text-center my-2">
+          <div class="inline-block bg-[#fffbeb] border-4 border-[#1e293b] rounded-3xl px-5 sm:px-9 py-3 sm:py-4 shadow-[6px_6px_0px_#1e293b] -rotate-1">
+            <h2 class="font-bangers text-4xl sm:text-6xl text-[#1e293b] leading-none tracking-wide drop-shadow-[2px_2px_0px_#fde047]">
+              Things Only<br />
+              <span class="text-red-600">Thai Students</span> <span class="text-blue-900">Understand</span>
+            </h2>
+          </div>
+          <div class="mt-3">
+            <span class="inline-block bg-amber-300 border-3 border-[#1e293b] rounded-full px-5 py-1 font-hand font-bold text-xl sm:text-2xl text-[#1e293b] shadow-[3px_3px_0px_#1e293b] rotate-1">
+              ✨ A Little Culture, A Lot of Memories ✨
+            </span>
+          </div>
+        </div>
+
+        <!-- Cover Full-Body 5-Character Lineup -->
+        <div class="relative z-10 mt-4 bg-white border-3 border-[#1e293b] rounded-2xl p-2 sm:p-3 shadow-[4px_4px_0px_#1e293b]">
+          <svg id="coverLineupSvg" viewBox="0 0 820 265" class="w-full h-auto rounded-xl"></svg>
+        </div>
+
+        <!-- Bottom Bar: Colorful Tuk-Tuk + Read CTA -->
+        <div class="relative z-10 mt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <!-- Colorful Tuk-Tuk SVG -->
+            <svg viewBox="0 0 140 95" class="w-24 sm:w-28 h-auto drop-shadow-[3px_3px_0px_#1e293b]">
+              <path d="M25 22 Q65 12, 102 22 L106 32 L22 32 Z" fill="#facc15" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round" />
+              <path d="M24 32 L104 32 L114 68 L22 68 Z" fill="#2563eb" stroke="#1e293b" stroke-width="2.5" stroke-linejoin="round" />
+              <rect x="30" y="36" width="32" height="20" rx="3" fill="#bae6fd" stroke="#1e293b" stroke-width="2" />
+              <rect x="68" y="36" width="28" height="20" rx="3" fill="#1e3a8a" stroke="#1e293b" stroke-width="2" />
+              <rect x="22" y="58" width="92" height="10" fill="#dc2626" stroke="#1e293b" stroke-width="2.5" />
+              <circle cx="115" cy="54" r="5" fill="#fef08a" stroke="#1e293b" stroke-width="2" />
+              <circle cx="40" cy="74" r="13" fill="#27272a" stroke="#1e293b" stroke-width="2.5" />
+              <circle cx="40" cy="74" r="5" fill="#e4e4e7" />
+              <circle cx="102" cy="74" r="13" fill="#27272a" stroke="#1e293b" stroke-width="2.5" />
+              <circle cx="102" cy="74" r="5" fill="#e4e4e7" />
+            </svg>
+            <p class="text-xs sm:text-sm font-semibold text-[#1e293b] max-w-[250px]">
+              3 Full Chapters • 15 Illustrated Webtoon Panels • Interactive Sound Effects &amp; Culture Notes!
+            </p>
+          </div>
+
+          <button onclick="nextPage()" class="comic-btn bg-red-600 hover:bg-red-500 text-white font-bangers text-2xl sm:text-3xl px-7 py-2.5 tracking-wider flex items-center gap-2">
+            <span>START READING</span>
+            <span>▶</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CAST SHOWCASE CARDS -->
+      <div class="mt-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div class="chapter-banner px-4 py-1.5">
+            <h3 class="font-bangers text-2xl sm:text-3xl text-[#1e293b]">
+              Meet the Cast • Class 3/2
+            </h3>
+          </div>
+          <span class="text-xs font-bold bg-amber-100 border-2 border-[#1e293b] px-3 py-1 rounded-full">
+            🏫 Full-Body Student Character Lineup
+          </span>
+        </div>
+
+        <div id="castCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER 1: TEASING FRIENDS — THE 'NOI' TRAP (5 PANELS) ==================== -->
+    <section data-page="1" class="comic-page comic-sheet p-4 sm:p-7 mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="chapter-banner px-4 py-1.5">
+          <h2 class="font-bangers text-2xl sm:text-3xl text-[#1e293b]">
+            1. Teasing Friends — The “Noi” Trap
+          </h2>
+        </div>
+        <button onclick="toggleCultureDrawer(1)" class="comic-btn bg-amber-200 hover:bg-amber-300 px-3 py-1 text-xs sm:text-sm flex items-center gap-1.5">
+          <span>🇹🇭</span>
+          <span>Thai School Culture Notes</span>
+          <span id="drawerArrow1">▼</span>
+        </button>
+      </div>
+
+      <div id="cultureDrawer1" class="hidden mb-4 bg-amber-100 border-3 border-[#1e293b] rounded-xl p-3.5 shadow-[3px_3px_0px_#1e293b]">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <h3 class="font-bangers text-xl text-red-600">🇹🇭 Parent-Name Teasing &amp; The “Noi” (หน่อย) Pun</h3>
+            <p class="text-xs sm:text-sm font-medium text-[#1e293b] mt-1 leading-relaxed">
+              Almost everyone in Thailand has a short one-syllable nickname (<em>Chue Len</em>). One of the funniest Thai school traditions is teasing friends by chanting their mom or dad’s nickname! When a mom’s name is <strong>“Noi” (หน่อย)</strong>—which is also a common polite Thai word meaning <em>“please / a little”</em>—every polite classroom request becomes an instant comedy trap!
+            </p>
+          </div>
+          <button onclick="toggleCultureDrawer(1)" class="text-xs font-bold px-2 py-1 rounded bg-white border border-[#1e293b]">✕</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- PANEL 1 -->
+        <div class="comic-panel animate-panel delay-1">
+          <div class="caption-box top-2.5 left-2.5">1 • Before First Bell</div>
+          <div class="speech-bubble tail-bl top-10 left-2.5 max-w-[66%]">
+            “Hehe... found Win’s Facebook! Mom’s name: <span class="text-red-600">‘Noi (หน่อย)’</span>?! Jackpot!”
+          </div>
+          <svg id="ch1p1" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 2 -->
+        <div class="comic-panel animate-panel delay-2">
+          <div class="caption-box top-2.5 left-2.5">2 • Quiet Lesson</div>
+          <button onclick="triggerSfx(this, 'thud')" class="sfx-burst bottom-7 right-4 bg-yellow-300 border-3 border-[#1e293b] rounded-2xl px-3.5 py-1 text-2xl sm:text-3xl text-red-600 -rotate-6" title="Click to play textbook thud!">
+            THUD! 📚
+          </button>
+          <svg id="ch1p2" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 3 -->
+        <div class="comic-panel animate-panel delay-3">
+          <div class="caption-box top-2.5 left-2.5">3 • The Polite Request</div>
+          <div class="speech-bubble tail-br top-9 right-2.5 max-w-[68%]">
+            “Oops! Could someone pick that up for me... <span class="text-red-600 underline">‘noi’</span>?”
+          </div>
+          <div class="absolute bottom-2.5 left-2.5 right-2.5 z-10 bg-amber-100/95 border-2 border-[#1e293b] rounded-lg px-2.5 py-1 shadow-[2px_2px_0px_#1e293b]">
+            <p class="text-[11px] font-bold text-[#1e293b] leading-tight">
+              💡 Note: <span class="text-red-600">“Noi” (หน่อย)</span> means “please / a little” in Thai—and Win’s mom’s name!
+            </p>
+          </div>
+          <svg id="ch1p3" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 4 -->
+        <div class="comic-panel animate-panel delay-4">
+          <div class="caption-box top-2.5 left-2.5">4 • Target Locked!</div>
+          <div class="speech-bubble shout-bubble tail-bl top-10 left-2.5 text-lg">
+            “Noi! Noi! Noi~!”
+          </div>
+          <button onclick="triggerSfx(this, 'tease')" class="sfx-burst top-9 right-3 bg-purple-200 border-3 border-[#1e293b] rounded-2xl px-3 py-1 text-xl sm:text-2xl text-red-600 rotate-6" title="Click for teasing chant sound!">
+            NOI~ NOI~! 😜
+          </button>
+          <svg id="ch1p4" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 5 (Wide Finale) -->
+        <div class="comic-panel animate-panel delay-5 md:col-span-2">
+          <div class="caption-box top-2.5 left-2.5">5 • Classroom Uproar</div>
+          <div class="speech-bubble tail-bl top-10 left-3 sm:left-6">
+            “Pfft—hahaha! Good one, Krit!”
+          </div>
+          <div class="speech-bubble shout-bubble tail-br top-3 right-3 sm:right-6 max-w-[56%] sm:max-w-[44%]">
+            “Hey! Stop calling my mom’s name!!”
+          </div>
+          <button onclick="triggerSfx(this, 'laugh')" class="sfx-burst bottom-8 left-4 sm:left-8 bg-orange-200 border-3 border-[#1e293b] rounded-2xl px-3.5 py-1 text-2xl sm:text-3xl text-red-600 -rotate-3" title="Click for classroom laughter!">
+            HAHAHA! 😂
+          </button>
+          <svg id="ch1p5" viewBox="0 0 880 280" class="w-full h-auto block"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER 2: RUBBER-BAND GAMES — FIRST-TIME JUMPER (5 PANELS) ==================== -->
+    <section data-page="2" class="comic-page comic-sheet p-4 sm:p-7 mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="chapter-banner px-4 py-1.5">
+          <h2 class="font-bangers text-2xl sm:text-3xl text-[#1e293b]">
+            2. Rubber-Band Games — First-Time Jumper
+          </h2>
+        </div>
+        <button onclick="toggleCultureDrawer(2)" class="comic-btn bg-pink-200 hover:bg-pink-300 px-3 py-1 text-xs sm:text-sm flex items-center gap-1.5">
+          <span>🇹🇭</span>
+          <span>Thai School Culture Notes</span>
+          <span id="drawerArrow2">▼</span>
+        </button>
+      </div>
+
+      <div id="cultureDrawer2" class="hidden mb-4 bg-pink-100 border-3 border-[#1e293b] rounded-xl p-3.5 shadow-[3px_3px_0px_#1e293b]">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <h3 class="font-bangers text-xl text-pink-700">🇹🇭 Kra-dod Yang (กระโดดยาง — Braided Rubber-Band Rope)</h3>
+            <p class="text-xs sm:text-sm font-medium text-[#1e293b] mt-1 leading-relaxed">
+              Thai students braid hundreds of colorful rubber bands into a stretchy jump rope! Two friends hold the ends while players clear rising height levels: <strong>Ankle (Ta-tum)</strong>, <strong>Knee (Khao)</strong>, <strong>Waist (Eo)</strong>, <strong>Chest (Ok)</strong>, <strong>Ear (Hu)</strong>, <strong>Head (Hua)</strong>, and <strong>“Choo”</strong> (arms raised overhead)!
+            </p>
+          </div>
+          <button onclick="toggleCultureDrawer(2)" class="text-xs font-bold px-2 py-1 rounded bg-white border border-[#1e293b]">✕</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- PANEL 1 -->
+        <div class="comic-panel animate-panel delay-1">
+          <div class="caption-box top-2.5 left-2.5">1 • Canteen After Lunch</div>
+          <div class="speech-bubble tail-br top-9 right-2.5 max-w-[66%]">
+            “Nok! Come play rubber-band jump with us in the courtyard!”
+          </div>
+          <svg id="ch2p1" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 2 -->
+        <div class="comic-panel animate-panel delay-2">
+          <div class="caption-box top-2.5 left-2.5">2 • First-Timer Confusion</div>
+          <div class="speech-bubble tail-bl top-9 left-2.5 max-w-[74%]">
+            “Wait... I’ve never played before! How do you even jump over that?”
+          </div>
+          <svg id="ch2p2" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 3 -->
+        <div class="comic-panel animate-panel delay-3">
+          <div class="caption-box top-2.5 left-2.5">3 • Level 1: Ankle Height</div>
+          <div class="speech-bubble tail-bl top-9 left-2.5 max-w-[76%]">
+            “Easy! Level 1 starts at ankle height—just hop right over!”
+          </div>
+          <button onclick="triggerSfx(this, 'boing')" class="sfx-burst bottom-8 right-3 bg-emerald-200 border-3 border-[#1e293b] rounded-2xl px-3 py-1 text-xl sm:text-2xl text-pink-700 rotate-6" title="Click for bouncy rubber-band sound!">
+            BOING! 🪢
+          </button>
+          <svg id="ch2p3" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 4 -->
+        <div class="comic-panel animate-panel delay-4">
+          <div class="caption-box top-2.5 left-2.5">4 • Level 2: Knee Height</div>
+          <div class="speech-bubble tail-bl top-9 left-2.5 max-w-[74%]">
+            “Okay... bend knees, deep breath... I can do this!”
+          </div>
+          <svg id="ch2p4" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 5 (Wide Finale) -->
+        <div class="comic-panel animate-panel delay-5 md:col-span-2">
+          <div class="caption-box top-2.5 left-2.5">5 • Clean Clear!</div>
+          <div class="speech-bubble shout-bubble tail-br top-3 right-3 sm:right-6 max-w-[54%] sm:max-w-[40%]">
+            “Jump! Jump! You cleared it, Nok!”
+          </div>
+          <button onclick="triggerSfx(this, 'clap')" class="sfx-burst bottom-4 left-4 sm:left-8 bg-pink-200 border-3 border-[#1e293b] rounded-2xl px-3.5 py-1 text-2xl sm:text-3xl text-blue-900 -rotate-3" title="Click for cheering applause!">
+            CLAP-CLAP! 🎉
+          </button>
+          <svg id="ch2p5" viewBox="0 0 880 280" class="w-full h-auto block"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER 3: AFTER SCHOOL — FROM BENCHWARMER TO STRIKER (5 PANELS) ==================== -->
+    <section data-page="3" class="comic-page comic-sheet p-4 sm:p-7 mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <div class="chapter-banner px-4 py-1.5">
+          <h2 class="font-bangers text-2xl sm:text-3xl text-[#1e293b]">
+            3. After School — From Benchwarmer to Striker
+          </h2>
+        </div>
+        <button onclick="toggleCultureDrawer(3)" class="comic-btn bg-amber-300 hover:bg-amber-400 px-3 py-1 text-xs sm:text-sm flex items-center gap-1.5">
+          <span>🇹🇭</span>
+          <span>Thai School Culture Notes</span>
+          <span id="drawerArrow3">▼</span>
+        </button>
+      </div>
+
+      <div id="cultureDrawer3" class="hidden mb-4 bg-amber-100 border-3 border-[#1e293b] rounded-xl p-3.5 shadow-[3px_3px_0px_#1e293b]">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <h3 class="font-bangers text-xl text-amber-800">🇹🇭 After-School Uniform Football &amp; Nanyang Sneakers</h3>
+            <p class="text-xs sm:text-sm font-medium text-[#1e293b] mt-1 leading-relaxed">
+              While waiting by the school gate for parents or school buses, Thai students turn any grassy field into a stadium! Nobody changes out of their uniform—playing full-speed football in white button-up shirts, navy-blue shorts, and classic white rubber-soled canvas sneakers (<em>Nanyang</em>) until sunset is a beloved Thai school tradition.
+            </p>
+          </div>
+          <button onclick="toggleCultureDrawer(3)" class="text-xs font-bold px-2 py-1 rounded bg-white border border-[#1e293b]">✕</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- PANEL 1 -->
+        <div class="comic-panel animate-panel delay-1">
+          <div class="caption-box top-2.5 left-2.5">1 • Waiting by the Gate</div>
+          <div class="speech-bubble thought-bubble tail-bl top-9 left-2.5 max-w-[74%]">
+            “Sigh... nothing to do while waiting for my ride home...”
+          </div>
+          <svg id="ch3p1" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 2 -->
+        <div class="comic-panel animate-panel delay-2">
+          <div class="caption-box top-2.5 left-2.5">2 • Golden Hour Kickabout</div>
+          <svg id="ch3p2" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 3 -->
+        <div class="comic-panel animate-panel delay-3">
+          <div class="caption-box top-2.5 left-2.5">3 • Short One Player</div>
+          <div class="speech-bubble tail-br top-8 right-2.5 max-w-[52%]">
+            “Hey Win! Join us—we're short one player!”
+          </div>
+          <div class="speech-bubble thought-bubble tail-bl bottom-3 left-2.5 max-w-[54%]">
+            “Me? I don't really know how to play...”
+          </div>
+          <svg id="ch3p3" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 4 -->
+        <div class="comic-panel animate-panel delay-4">
+          <div class="caption-box top-2.5 left-2.5">4 • Sideline Cheering!</div>
+          <div class="speech-bubble shout-bubble tail-bl top-9 left-2.5 max-w-[66%]">
+            “Come on, Win! Give it a try—you got this!”
+          </div>
+          <svg id="ch3p4" viewBox="0 0 440 300" class="w-full h-auto block"></svg>
+        </div>
+
+        <!-- PANEL 5 (Wide Finale) -->
+        <div class="comic-panel animate-panel delay-5 md:col-span-2">
+          <div class="caption-box top-2.5 left-2.5">5 • Sunset Striker!</div>
+          <div class="speech-bubble shout-bubble tail-bl top-10 left-3 sm:left-6">
+            “Nice shot, Win!!”
+          </div>
+          <button onclick="triggerSfx(this, 'kick')" class="sfx-burst top-6 right-4 sm:right-8 bg-yellow-300 border-3 border-[#1e293b] rounded-2xl px-4 py-1.5 text-2xl sm:text-4xl text-red-600 rotate-6" title="Click to strike the football!">
+            THWACK! ⚽
+          </button>
+          <svg id="ch3p5" viewBox="0 0 880 295" class="w-full h-auto block"></svg>
+
+          <!-- Closing Banner -->
+          <div class="p-3 sm:p-4 bg-[#fdf8ee] border-t-3 border-[#1e293b]">
+            <div class="narrative-scroll px-4 py-3 text-center">
+              <p class="font-hand font-bold text-xl sm:text-2xl text-[#1e293b] leading-snug">
+                “Thai school life is full of friendship, fun activities, and unique traditions! <span class="text-red-600">♡</span>”
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Bottom Page Navigation -->
+  <footer id="pageNavFooter" class="sticky bottom-0 z-40 bg-[#fdf8ee]/95 backdrop-blur-sm border-t-4 border-[#1e293b] px-3 py-2.5 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+    <div class="max-w-5xl mx-auto flex items-center justify-between gap-2">
+      <button id="prevBtn" onclick="prevPage()" class="comic-btn bg-white hover:bg-amber-100 px-3 sm:px-4 py-1.5 text-xs sm:text-sm flex items-center gap-1">
+        <span>◀</span>
+        <span>Prev Page</span>
+      </button>
+
+      <!-- Page Indicator Dots + Label -->
+      <div class="flex flex-col items-center gap-1">
+        <div id="pageIndicatorText" class="font-bangers text-base sm:text-xl text-[#1e293b] tracking-wide leading-none">
+          Cover &amp; Cast (Page 1 of 4)
+        </div>
+        <div class="flex items-center gap-1.5">
+          <button onclick="goToPage(0)" data-dot="0" aria-label="Cover & Cast" class="page-dot w-2.5 h-2.5 rounded-full border border-[#1e293b] transition-all"></button>
+          <button onclick="goToPage(1)" data-dot="1" aria-label="Chapter 1" class="page-dot w-2.5 h-2.5 rounded-full border border-[#1e293b] transition-all"></button>
+          <button onclick="goToPage(2)" data-dot="2" aria-label="Chapter 2" class="page-dot w-2.5 h-2.5 rounded-full border border-[#1e293b] transition-all"></button>
+          <button onclick="goToPage(3)" data-dot="3" aria-label="Chapter 3" class="page-dot w-2.5 h-2.5 rounded-full border border-[#1e293b] transition-all"></button>
+        </div>
+      </div>
+
+      <button id="nextBtn" onclick="nextPage()" class="comic-btn bg-amber-300 hover:bg-amber-400 px-3 sm:px-4 py-1.5 text-xs sm:text-sm flex items-center gap-1">
+        <span>Next Page</span>
+        <span>▶</span>
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    // ==================== MODULAR ANIME / WEBTOON CHARACTER SVG BUILDER ====================
+    // Coordinate system per character: (0, 0) = center of face.
+    // Head skin spans y = -19 (top of skull) to y = +22 (chin), width 40px (-20 to +20), ears at x = ±20, y = 4.
+    // Front-hair dome extends from y = -27 (well above top of skull!) down to y = -6 across full width (-22..22),
+    // seamlessly merging into sculpted anime bangs (y = -8..+1) and sideburns—guaranteeing ZERO exposed scalp!
+
+    const CHARACTER_META = {
+      win: {
+        name: "WIN",
+        badge: "Easily Flustered",
+        badgeBg: "bg-red-100",
+        titleColor: "text-red-600",
+        cardBg: "from-red-50 to-amber-50",
+        hairColor: "#1f2430",
+        gender: "boy",
+        desc: "Easily flustered Thai schoolboy with tousled dark hair who gets teased easily and rarely plays sports."
+      },
+      krit: {
+        name: "KRIT",
+        badge: "Classroom Teaser",
+        badgeBg: "bg-purple-100",
+        titleColor: "text-purple-700",
+        cardBg: "from-purple-50 to-amber-50",
+        hairColor: "#2d221e",
+        gender: "boy",
+        desc: "Mischievous classmate with cropped dark-brown hair who loves digging up secrets to tease Win."
+      },
+      nok: {
+        name: "NOK",
+        badge: "First-Time Jumper",
+        badgeBg: "bg-pink-100",
+        titleColor: "text-pink-600",
+        cardBg: "from-pink-50 to-amber-50",
+        hairColor: "#3b231a",
+        gender: "girl",
+        desc: "Cheerful girl with twin pigtails and lavender ribbons who tries rubber-band jumping for the first time."
+      },
+      ploy: {
+        name: "PLOY",
+        badge: "Jump Expert",
+        badgeBg: "bg-orange-100",
+        titleColor: "text-orange-600",
+        cardBg: "from-orange-50 to-amber-50",
+        hairColor: "#4a2c20",
+        gender: "girl",
+        desc: "Warm-hearted best friend with smooth chestnut hair and a white hairclip who teaches Nok step-by-step."
+      },
+      ton: {
+        name: "TON",
+        badge: "Football Ace",
+        badgeBg: "bg-sky-100",
+        titleColor: "text-blue-900",
+        cardBg: "from-sky-50 to-emerald-50",
+        hairColor: "#1e2530",
+        gender: "boy",
+        desc: "Energetic football-loving friend with a cute top cowlick who always invites everyone to play at sunset."
+      },
+      teacher: {
+        name: "KRU MAY",
+        badge: "Thai Teacher",
+        badgeBg: "bg-yellow-100",
+        titleColor: "text-amber-800",
+        cardBg: "from-yellow-50 to-amber-50",
+        hairColor: "#26201e",
+        gender: "teacher",
+        desc: "Kind Thai literature teacher whose polite classroom request accidentally sets off the 'Noi' pun."
+      }
+    };
+
+    function renderCharacter(id, opts = {}) {
+      const {
+        x = 0,
+        y = 0,
+        scale = 1,
+        expr = "happy",
+        pose = "idle",
+        flipX = false
+      } = opts;
+
+      const meta = CHARACTER_META[id] || CHARACTER_META.win;
+      const ink = "#1e293b";
+      const skin = expr === "blush" ? "#ffb3b3" : "#ffe2c8";
+      const skinShadow = expr === "blush" ? "#f88383" : "#ebc2a0";
+      const hair = meta.hairColor;
+      const isJump = pose === "jumping";
+
+      // 1. BACK HAIR LAYER (Rendered behind neck, shoulders, and head)
+      let backHair = "";
+      if (id === "win") {
+        backHair = `<path d="M -21,-9 C -22,-25 -11,-28 0,-28 C 11,-28 22,-25 21,-9 L 18,16 L -18,16 Z" fill="${hair}" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />`;
+      } else if (id === "krit") {
+        backHair = `<path d="M -21,-9 C -22,-25 -11,-28 0,-28 C 11,-28 22,-25 21,-9 L 16,13 L -16,13 Z" fill="${hair}" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />`;
+      } else if (id === "ton") {
+        backHair = `<path d="M -21,-9 C -22,-25 -11,-28 0,-28 C 11,-28 22,-25 21,-9 L 18,15 L -18,15 Z" fill="${hair}" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />`;
+      } else if (id === "nok") {
+        const leftTail = isJump
+          ? `<path d="M -18,-14 C -38,-28 -44,-3 -31,7 C -24,1 -20,-6 -17,-10 Z" fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />`
+          : `<path d="M -18,-14 C -33,-11 -37,11 -29,28 C -23,21 -20,6 -17,-6 Z" fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />`;
+        const rightTail = isJump
+          ? `<path d="M 18,-14 C 38,-28 44,-3 31,7 C 24,1 20,-6 17,-10 Z" fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />`
+          : `<path d="M 18,-14 C 33,-11 37,11 29,28 C 23,21 20,6 17,-6 Z" fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />`;
+        backHair = `
+          ${leftTail}
+          ${rightTail}
+          <path d="M -21,-8 C -22,-26 -11,-28 0,-28 C 11,-28 22,-26 21,-8 L 17,14 L -17,14 Z" fill="${hair}" stroke="${ink}" stroke-width="2" />
+        `;
+      } else if (id === "ploy") {
+        backHair = `<path d="M -21,-9 C -22,-26 -11,-28 0,-28 C 11,-28 22,-26 21,-9 C 25,9 26,31 20,44 L -20,44 C -26,31 -25,9 -21,-9 Z" fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />`;
+      } else if (id === "teacher") {
+        backHair = `
+          <circle cx="0" cy="-29" r="9.5" fill="${hair}" stroke="${ink}" stroke-width="2.1" />
+          <path d="M -21,-9 C -22,-25 -11,-28 0,-28 C 11,-28 22,-25 21,-9 L 17,14 L -17,14 Z" fill="${hair}" stroke="${ink}" stroke-width="2" />
+        `;
+      }
+
+      // 2. BODY LAYER (Slender neck, sloped shoulders, distinct angled short sleeves, arms, uniform, legs & shoes)
+      const neck = `
+        <rect x="-5.5" y="19" width="11" height="10" rx="3" fill="${skin}" stroke="${ink}" stroke-width="2" />
+        <path d="M -5.5,20 Q 0,24 5.5,20 L 5.5,23 Q 0,26 -5.5,23 Z" fill="${skinShadow}" />
+      `;
+
+      // Arms & Angled Short Sleeves per Pose
+      let armsBack = "";
+      let armsFront = "";
+      if (pose === "idle") {
+        armsBack = `
+          <path d="M -16,30 L -25,44 L -18,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -23,46 L -25,63 L -19,63 L -18,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-22" cy="64" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 16,30 L 25,44 L 18,48 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 23,46 L 25,63 L 19,63 L 18,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="22" cy="64" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      } else if (pose === "crouching") {
+        armsBack = `
+          <path d="M -16,30 L -27,42 L -20,47 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -25,44 L -31,55 L -21,62 L -18,57 L -24,52 L -20,46 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-19" cy="60" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 16,30 L 27,42 L 20,47 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 25,44 L 31,55 L 21,62 L 18,57 L 24,52 L 20,46 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="19" cy="60" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      } else if (pose === "holdAnkleRight") {
+        armsBack = `
+          <path d="M -16,30 L -24,44 L -17,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -22,46 L -23,62 L -17,62 L -17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-20" cy="63" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 16,30 L 24,45 L 17,48 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 22,47 L 24,106 L 18,106 L 17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+        `;
+      } else if (pose === "holdAnkleLeft") {
+        armsBack = `
+          <path d="M 16,30 L 24,44 L 17,48 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 22,46 L 23,62 L 17,62 L 17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="20" cy="63" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M -16,30 L -24,45 L -17,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -22,47 L -24,106 L -18,106 L -17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+        `;
+      } else if (pose === "holdKneeRight") {
+        armsBack = `
+          <path d="M -16,30 L -24,44 L -17,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -22,46 L -23,62 L -17,62 L -17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-20" cy="63" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 16,30 L 23,45 L 16,48 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 21,47 L 19.5,104 L 13.5,104 L 16,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+        `;
+      } else if (pose === "holdKneeLeft") {
+        armsBack = `
+          <path d="M 16,30 L 24,44 L 17,48 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 22,46 L 23,62 L 17,62 L 17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="20" cy="63" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M -16,30 L -23,45 L -16,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -21,47 L -19.5,104 L -13.5,104 L -16,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+        `;
+      } else if (pose === "holdCheerRight") {
+        armsBack = `
+          <path d="M -15,29 L -28,20 L -24,29 L -14,36 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -26,21 L -35,4 L -29,2 L -21,20 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-33" cy="1" r="3.7" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 16,30 L 23,45 L 16,48 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 21,47 L 21,94 L 15,94 L 16,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+        `;
+      } else if (pose === "holdCheerLeft") {
+        armsBack = `
+          <path d="M 15,29 L 28,20 L 24,29 L 14,36 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 26,21 L 35,4 L 29,2 L 21,20 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="33" cy="1" r="3.7" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M -16,30 L -23,45 L -16,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -21,47 L -21,94 L -15,94 L -16,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+        `;
+      } else if (pose === "sitting") {
+        armsBack = `
+          <path d="M -16,30 L -24,44 L -17,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 16,30 L 24,44 L 17,48 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+        `;
+        armsFront = `
+          <path d="M -21,46 L -15,64 L -9,63 L -16,46 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-11" cy="64" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 21,46 L 14,34 L 5,22 L 10,19 L 20,33 L 24,45 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="6" cy="21" r="3.5" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      } else if (pose === "phone") {
+        armsBack = `
+          <path d="M -16,30 L -24,44 L -17,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -22,46 L -23,62 L -17,62 L -17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-20" cy="63" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 16,30 L 24,44 L 17,48 L 13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+        `;
+        armsFront = `
+          <path d="M 21,46 L 17,56 L 7,49 L 10,44 L 16,49 L 18,45 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <rect x="0" y="34" width="11" height="18" rx="2.5" fill="#1e293b" stroke="${ink}" stroke-width="1.6" />
+          <rect x="1.5" y="36" width="8" height="13" rx="1" fill="#38bdf8" />
+          <circle cx="7" cy="47" r="3.3" fill="${skin}" stroke="${ink}" stroke-width="1.7" />
+        `;
+      } else if (pose === "pointing") {
+        armsBack = `
+          <path d="M -16,30 L -24,44 L -17,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -22,46 L -22,62 L -16,62 L -17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-19" cy="63" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+        armsFront = `
+          <path d="M 15,29 L 31,26 L 31,34 L 15,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 31,27 L 48,25 L 48,31 L 31,33 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="49" cy="28" r="3.6" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <line x1="52" y1="27" x2="60" y2="26" stroke="${ink}" stroke-width="3.2" stroke-linecap="round" />
+        `;
+      } else if (pose === "scratching") {
+        armsBack = `
+          <path d="M -16,30 L -24,44 L -17,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -22,46 L -22,62 L -16,62 L -17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-19" cy="63" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 15,29 L 28,22 L 24,30 L 14,36 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 26,23 L 31,8 L 21,-6 L 17,-2 L 25,9 L 22,23 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="19" cy="-6" r="3.6" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      } else if (pose === "waving") {
+        armsBack = `
+          <path d="M -16,30 L -24,44 L -17,48 L -13,37 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -22,46 L -22,62 L -16,62 L -17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-19" cy="63" r="3.4" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 15,29 L 28,20 L 24,29 L 14,36 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 26,21 L 34,3 L 28,1 L 21,20 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="32" cy="0" r="3.8" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      } else if (pose === "cheering" || pose === "jumping") {
+        armsBack = `
+          <path d="M -15,29 L -28,20 L -24,29 L -14,36 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -26,21 L -35,4 L -29,2 L -21,20 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-33" cy="1" r="3.7" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 15,29 L 28,20 L 24,29 L 14,36 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 26,21 L 35,4 L 29,2 L 21,20 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="33" cy="1" r="3.7" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      } else if (pose === "kicking" || pose === "running") {
+        armsBack = `
+          <path d="M -15,29 L -28,24 L -24,32 L -14,36 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -26,25 L -38,14 L -33,10 L -22,22 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-36" cy="11" r="3.6" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 15,29 L 28,22 L 24,30 L 14,36 Z" fill="#ffffff" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 26,23 L 38,12 L 33,8 L 22,20 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="36" cy="9" r="3.6" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      } else if (pose === "teacherDrop") {
+        armsBack = `
+          <path d="M -16,30 L -26,38 L -20,44 L -13,37 Z" fill="#fef08a" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -24,40 L -32,48 L -27,51 L -20,43 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-30" cy="50" r="3.5" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+          <path d="M 16,30 L 26,38 L 20,44 L 13,37 Z" fill="#fef08a" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 24,40 L 32,48 L 27,51 L 20,43 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="30" cy="50" r="3.5" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      } else if (pose === "teacherPoint") {
+        armsBack = `
+          <path d="M 16,30 L 24,44 L 17,48 L 13,37 Z" fill="#fef08a" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 22,46 L 22,62 L 16,62 L 17,48 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <path d="M -16,30 L -28,39 L -22,45 L -13,37 Z" fill="#fef08a" stroke="${ink}" stroke-width="2" stroke-linejoin="round" />
+          <path d="M -26,41 L -40,52 L -36,56 L -22,44 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+          <circle cx="-39" cy="55" r="3.5" fill="${skin}" stroke="${ink}" stroke-width="1.8" />
+        `;
+      }
+
+      // Uniform Torso, Bottoms & Legs
+      let uniformBody = "";
+      if (meta.gender === "boy") {
+        let legs = "";
+        if (pose === "sitting") {
+          legs = `
+            <rect x="-11" y="84" width="7.2" height="17" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="3.8" y="84" width="7.2" height="17" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="-11.3" y="99" width="7.8" height="6.5" fill="#ffffff" stroke="${ink}" stroke-width="1.8" />
+            <rect x="3.5" y="99" width="7.8" height="6.5" fill="#ffffff" stroke="${ink}" stroke-width="1.8" />
+            <path d="M -13,105 L -3,105 Q -2,111 -4,112 L -14,112 Q -15.5,108 -13,105 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.9" />
+            <path d="M 3,105 L 13,105 Q 15.5,108 14,112 L 4,112 Q 2,111 3,105 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.9" />
+          `;
+        } else if (pose === "kicking") {
+          legs = `
+            <rect x="-12" y="90" width="7.4" height="18" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="-12.3" y="106" width="8" height="6.5" fill="#ffffff" stroke="${ink}" stroke-width="1.8" />
+            <path d="M -14,112 L -3.5,112 Q -2.5,118 -4.5,119 L -15,119 Q -16.5,115 -14,112 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.9" />
+            <path d="M 6,85 L 28,93 L 26,100 L 4,92 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+            <path d="M 25,92 L 32,94.5 L 30,101 L 23,98.5 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.8" />
+            <path d="M 31,93 L 39,95 Q 41,100 37,103 L 29,101 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.9" />
+          `;
+        } else if (pose === "running") {
+          legs = `
+            <path d="M -9,90 L -15,106 L -8,108 L -3,91 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <path d="M -17,106 L -7,108 L -9,114 L -19,112 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.9" />
+            <path d="M 6,89 L 15,104 L 9,107 L 1,91 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <path d="M 8,105 L 18,103 L 20,109 L 10,111 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.9" />
+          `;
+        } else {
+          legs = `
+            <rect x="-11.5" y="90" width="7.2" height="18" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="4.3" y="90" width="7.2" height="18" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="-11.8" y="106" width="7.8" height="6.8" fill="#ffffff" stroke="${ink}" stroke-width="1.8" />
+            <rect x="4.0" y="106" width="7.8" height="6.8" fill="#ffffff" stroke="${ink}" stroke-width="1.8" />
+            <path d="M -13.5,112 L -3.5,112 Q -2.5,118 -4.5,119 L -14.5,119 Q -16,115 -13.5,112 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.9" />
+            <path d="M 3.5,112 L 13.5,112 Q 16,115 14.5,119 L 4.5,119 Q 2.5,118 3.5,112 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.9" />
+          `;
+        }
+
+        const shorts = pose === "sitting"
+          ? `<path d="M -14.5,65 L 14.5,65 L 16,84 L 1.2,84 L 0,74 L -1.2,84 L -16,84 Z" fill="#1e3a8a" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />`
+          : `<path d="M -14.5,65 L 14.5,65 L 16,90 L 1.2,90 L 0,76 L -1.2,90 L -16,90 Z" fill="#1e3a8a" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />`;
+
+        uniformBody = `
+          ${legs}
+          <!-- Navy-Blue Knee-Length School Shorts -->
+          ${shorts}
+          <rect x="-14.5" y="63.5" width="29" height="4.2" rx="1" fill="#172554" stroke="${ink}" stroke-width="1.8" />
+          <!-- Sloped Natural White Thai Schoolboy Shirt -->
+          <path d="M -17,31 Q -16,27 -6,27 L 6,27 Q 16,27 17,31 L 14.5,65 L -14.5,65 Z" fill="#ffffff" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+          <!-- Open-Collar V-Neck & Folded Lapels -->
+          <path d="M -7,27 L 0,38 L 7,27" fill="none" stroke="${ink}" stroke-width="1.8" stroke-linejoin="round" />
+          <polygon points="-7,27 -12,33 -3,36 0,34" fill="#f8fafc" stroke="${ink}" stroke-width="1.5" stroke-linejoin="round" />
+          <polygon points="7,27 12,33 3,36 0,34" fill="#f8fafc" stroke="${ink}" stroke-width="1.5" stroke-linejoin="round" />
+          <!-- Button Placket -->
+          <line x1="0" y1="38" x2="0" y2="64" stroke="#cbd5e1" stroke-width="1.3" />
+          <circle cx="0" cy="44" r="1.1" fill="#64748b" />
+          <circle cx="0" cy="52" r="1.1" fill="#64748b" />
+          <circle cx="0" cy="59" r="1.1" fill="#64748b" />
+          <!-- Embroidered Pocket 'ส.ว.' -->
+          <rect x="3.5" y="42.5" width="8.5" height="9.2" rx="1.2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" />
+          <text x="7.8" y="40.6" text-anchor="middle" font-family="Kanit, sans-serif" font-weight="700" font-size="4.6" fill="#1d4ed8">ส.ว.</text>
+        `;
+      } else if (meta.gender === "girl") {
+        let legs = "";
+        if (pose === "jumping") {
+          legs = `
+            <path d="M -11,88 L -16,102 L -9,103 L -4,88 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="-17" y="100" width="7.5" height="5.5" fill="#ffffff" stroke="${ink}" stroke-width="1.7" />
+            <ellipse cx="-13.5" cy="107" rx="5.5" ry="3.2" fill="#1e293b" stroke="${ink}" stroke-width="1.7" />
+            <path d="M 11,88 L 16,102 L 9,103 L 4,88 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="9.5" y="100" width="7.5" height="5.5" fill="#ffffff" stroke="${ink}" stroke-width="1.7" />
+            <ellipse cx="13.5" cy="107" rx="5.5" ry="3.2" fill="#1e293b" stroke="${ink}" stroke-width="1.7" />
+          `;
+        } else if (pose === "crouching") {
+          legs = `
+            <!-- Visibly bent knees: angled thighs out to knees and angled calves down to ankles -->
+            <path d="M -11,86 L -16,97 L -10,99 L -5,87 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+            <path d="M -16,97 L -12,108 L -6,107 L -10,98 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+            <rect x="-12.5" y="106" width="7.4" height="5.5" fill="#ffffff" stroke="${ink}" stroke-width="1.7" />
+            <path d="M -14,111 L -4.5,111 Q -3.5,117 -5.5,118 L -15,118 Q -16.5,114 -14,111 Z" fill="#1e293b" stroke="${ink}" stroke-width="1.8" />
+            <path d="M 11,86 L 16,97 L 10,99 L 5,87 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+            <path d="M 16,97 L 12,108 L 6,107 L 10,98 Z" fill="${skin}" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />
+            <rect x="5.1" y="106" width="7.4" height="5.5" fill="#ffffff" stroke="${ink}" stroke-width="1.7" />
+            <path d="M 4.5,111 L 14,111 Q 16.5,114 15,118 L 5.5,118 Q 3.5,117 4.5,111 Z" fill="#1e293b" stroke="${ink}" stroke-width="1.8" />
+          `;
+        } else {
+          legs = `
+            <rect x="-11" y="88" width="6.8" height="19" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="4.2" y="88" width="6.8" height="19" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+            <rect x="-11.3" y="105" width="7.4" height="6.5" fill="#ffffff" stroke="${ink}" stroke-width="1.7" />
+            <rect x="3.9" y="105" width="7.4" height="6.5" fill="#ffffff" stroke="${ink}" stroke-width="1.7" />
+            <path d="M -13,111 L -3.5,111 Q -2.5,117 -4.5,118 L -14,118 Q -15.5,114 -13,111 Z" fill="#1e293b" stroke="${ink}" stroke-width="1.8" />
+            <path d="M 3.5,111 L 13,111 Q 15.5,114 14,118 L 4.5,118 Q 2.5,117 3.5,111 Z" fill="#1e293b" stroke="${ink}" stroke-width="1.8" />
+          `;
+        }
+
+        uniformBody = `
+          ${legs}
+          <!-- High-Waisted Navy-Blue Pleated Skirt -->
+          <path d="M -13.5,62 L 13.5,62 L 19.5,89 L -19.5,89 Z" fill="#1e3a8a" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+          <line x1="-6.5" y1="63" x2="-9.5" y2="88.5" stroke="#172554" stroke-width="1.5" />
+          <line x1="0" y1="63" x2="0" y2="88.5" stroke="#172554" stroke-width="1.5" />
+          <line x1="6.5" y1="63" x2="9.5" y2="88.5" stroke="#172554" stroke-width="1.5" />
+          <!-- Sloped Natural White Thai Schoolgirl Blouse -->
+          <path d="M -16.5,31 Q -15.5,27 -5.5,27 L 5.5,27 Q 15.5,27 16.5,31 L 13.5,62.5 L -13.5,62.5 Z" fill="#ffffff" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+          <!-- Sailor Collar Trim & Navy Bow Tie (คอซอง) -->
+          <path d="M -9,27 Q 0,34 9,27" fill="none" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round" />
+          <polygon points="0,31 -7,35 -4,39 0,35 4,39 7,35" fill="#1e3a8a" stroke="${ink}" stroke-width="1.4" stroke-linejoin="round" />
+          <rect x="-2" y="30.5" width="4" height="4.5" rx="1" fill="#1e3a8a" stroke="${ink}" stroke-width="1.3" />
+        `;
+      } else {
+        // Teacher Uniform
+        uniformBody = `
+          <rect x="-10" y="96" width="6.8" height="16" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+          <rect x="3.2" y="96" width="6.8" height="16" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+          <path d="M -14,62 L 14,62 L 17,97 L -17,97 Z" fill="#1e3a8a" stroke="${ink}" stroke-width="2.1" />
+          <path d="M -16.5,31 Q -15.5,27 -5.5,27 L 5.5,27 Q 15.5,27 16.5,31 L 14,62 L -14,62 Z" fill="#fef08a" stroke="${ink}" stroke-width="2.1" />
+          <polygon points="-7,27 -12,33 -3,36 0,34" fill="#ffffff" stroke="${ink}" stroke-width="1.5" />
+          <polygon points="7,27 12,33 3,36 0,34" fill="#ffffff" stroke="${ink}" stroke-width="1.5" />
+        `;
+      }
+
+      // 3. HEAD LAYER (Smooth anime head contour: y = -19 top of skull to y = +22 chin, width 40px, ears at ±20, 4)
+      const head = `
+        <ellipse cx="-19.8" cy="4" rx="3.2" ry="4.6" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+        <ellipse cx="19.8" cy="4" rx="3.2" ry="4.6" fill="${skin}" stroke="${ink}" stroke-width="1.9" />
+        <path d="M -20,-2 C -20,-13 -11.5,-19 0,-19 C 11.5,-19 20,-13 20,-2 C 20,9 12,19 0,22 C -12,19 -20,9 -20,-2 Z" fill="${skin}" stroke="${ink}" stroke-width="2.2" />
+      `;
+
+      // 4. FACE DETAILS LAYER
+      let eyes = "";
+      let brows = "";
+      let mouth = "";
+      let extras = "";
+
+      if (expr === "happy" || expr === "gentle") {
+        brows = `
+          <path d="M -13,-4.5 Q -8.5,-6.5 -4.5,-4.5" fill="none" stroke="${ink}" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M 4.5,-4.5 Q 8.5,-6.5 13,-4.5" fill="none" stroke="${ink}" stroke-width="1.8" stroke-linecap="round" />
+        `;
+        eyes = `
+          <ellipse cx="-8.5" cy="2.5" rx="3.8" ry="4.5" fill="${ink}" />
+          <circle cx="-9.7" cy="0.8" r="1.5" fill="#ffffff" />
+          <circle cx="-7.2" cy="3.8" r="0.8" fill="#ffffff" />
+          <ellipse cx="8.5" cy="2.5" rx="3.8" ry="4.5" fill="${ink}" />
+          <circle cx="7.3" cy="0.8" r="1.5" fill="#ffffff" />
+          <circle cx="9.8" cy="3.8" r="0.8" fill="#ffffff" />
+        `;
+        mouth = expr === "gentle"
+          ? `<path d="M -4.5,13 Q 0,16.5 4.5,13" fill="none" stroke="${ink}" stroke-width="2" stroke-linecap="round" />`
+          : `<path d="M -5.5,12 Q 0,19 5.5,12 Z" fill="#fb7185" stroke="${ink}" stroke-width="1.8" stroke-linejoin="round" />`;
+      } else if (expr === "laugh") {
+        brows = `
+          <path d="M -13,-5 Q -8.5,-7.5 -4.5,-5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+          <path d="M 4.5,-5 Q 8.5,-7.5 13,-5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+        `;
+        eyes = `
+          <path d="M -12.5,3 Q -8.5,-2 -4.5,3" fill="none" stroke="${ink}" stroke-width="2.4" stroke-linecap="round" />
+          <path d="M 4.5,3 Q 8.5,-2 12.5,3" fill="none" stroke="${ink}" stroke-width="2.4" stroke-linecap="round" />
+        `;
+        mouth = `<path d="M -6.5,11 Q 0,20 6.5,11 Z" fill="#fb7185" stroke="${ink}" stroke-width="1.9" stroke-linejoin="round" />`;
+      } else if (expr === "smirk") {
+        brows = `
+          <line x1="-13.5" y1="-5.5" x2="-4.5" y2="-3.2" stroke="${ink}" stroke-width="2" stroke-linecap="round" />
+          <line x1="13.5" y1="-5.5" x2="4.5" y2="-3.2" stroke="${ink}" stroke-width="2" stroke-linecap="round" />
+        `;
+        eyes = `
+          <ellipse cx="-8.5" cy="2.5" rx="3.6" ry="4" fill="${ink}" />
+          <circle cx="-9.6" cy="1" r="1.4" fill="#ffffff" />
+          <ellipse cx="8.5" cy="2.5" rx="3.6" ry="4" fill="${ink}" />
+          <circle cx="7.4" cy="1" r="1.4" fill="#ffffff" />
+        `;
+        mouth = `<path d="M -6,12.5 Q -2.5,16.5 0,13 Q 2.5,16.5 6,12.5" fill="none" stroke="${ink}" stroke-width="2" stroke-linecap="round" />`;
+      } else if (expr === "blush") {
+        brows = `
+          <line x1="-13.5" y1="-5.5" x2="-4.5" y2="-2.5" stroke="${ink}" stroke-width="2.2" stroke-linecap="round" />
+          <line x1="13.5" y1="-5.5" x2="4.5" y2="-2.5" stroke="${ink}" stroke-width="2.2" stroke-linecap="round" />
+        `;
+        eyes = `
+          <ellipse cx="-8.5" cy="2.5" rx="3.6" ry="4.2" fill="${ink}" />
+          <circle cx="-9.6" cy="1" r="1.4" fill="#ffffff" />
+          <ellipse cx="8.5" cy="2.5" rx="3.6" ry="4.2" fill="${ink}" />
+          <circle cx="7.4" cy="1" r="1.4" fill="#ffffff" />
+        `;
+        mouth = `<path d="M -7,14.5 Q 0,10.5 7,14.5 Q 4,19 -4,19 Z" fill="#ffffff" stroke="${ink}" stroke-width="1.8" stroke-linejoin="round" />`;
+        extras = `
+          <path d="M 11,-11 L 13.5,-8.5 L 16,-11 M 11,-6 L 13.5,-8.5 L 16,-6" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" />
+          <circle cx="-27" cy="-14" r="5" fill="#ffffff" stroke="${ink}" stroke-width="1.7" />
+          <circle cx="-34" cy="-22" r="3.5" fill="#ffffff" stroke="${ink}" stroke-width="1.5" />
+          <circle cx="27" cy="-14" r="5" fill="#ffffff" stroke="${ink}" stroke-width="1.7" />
+          <circle cx="34" cy="-22" r="3.5" fill="#ffffff" stroke="${ink}" stroke-width="1.5" />
+        `;
+      } else if (expr === "shock") {
+        brows = `
+          <path d="M -13,-6.5 Q -8.5,-9 -4.5,-6.5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+          <path d="M 4.5,-6.5 Q 8.5,-9 13,-6.5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+        `;
+        eyes = `
+          <circle cx="-8.5" cy="2.5" r="4.2" fill="#ffffff" stroke="${ink}" stroke-width="1.8" />
+          <circle cx="-8.5" cy="2.5" r="2.1" fill="${ink}" />
+          <circle cx="8.5" cy="2.5" r="4.2" fill="#ffffff" stroke="${ink}" stroke-width="1.8" />
+          <circle cx="8.5" cy="2.5" r="2.1" fill="${ink}" />
+        `;
+        mouth = `<ellipse cx="0" cy="14" rx="3.8" ry="4.5" fill="#fb7185" stroke="${ink}" stroke-width="1.8" />`;
+      } else if (expr === "confused") {
+        brows = `
+          <path d="M -13,-6 Q -8.5,-8.5 -4.5,-4.5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+          <path d="M 4.5,-3.5 Q 8.5,-6 13,-4" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+        `;
+        eyes = `
+          <ellipse cx="-8.5" cy="2.5" rx="3.7" ry="4.3" fill="${ink}" />
+          <circle cx="-9.6" cy="1" r="1.4" fill="#ffffff" />
+          <ellipse cx="8.5" cy="2.5" rx="3.7" ry="4.3" fill="${ink}" />
+          <circle cx="7.4" cy="1" r="1.4" fill="#ffffff" />
+        `;
+        mouth = `<path d="M -4,14.5 Q 0,12 4,14.5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />`;
+        extras = `<text x="23" y="-12" font-family="Bangers, sans-serif" font-size="22" fill="#ec4899" stroke="${ink}" stroke-width="1.1">?</text>`;
+      } else if (expr === "nervous") {
+        brows = `
+          <path d="M -13,-4 Q -8.5,-7 -4.5,-3.5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+          <path d="M 4.5,-3.5 Q 8.5,-7 13,-4" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+        `;
+        eyes = `
+          <ellipse cx="-8.5" cy="2.5" rx="3.6" ry="4.2" fill="${ink}" />
+          <circle cx="-9.6" cy="1" r="1.4" fill="#ffffff" />
+          <ellipse cx="8.5" cy="2.5" rx="3.6" ry="4.2" fill="${ink}" />
+          <circle cx="7.4" cy="1" r="1.4" fill="#ffffff" />
+        `;
+        mouth = `<path d="M -5,15 Q -2.5,12.5 0,14.5 Q 2.5,12.5 5,15" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />`;
+        extras = `<path d="M -23,-4 Q -26,2 -23,5 Q -20,2 -23,-4 Z" fill="#38bdf8" stroke="${ink}" stroke-width="1.4" />`;
+      } else if (expr === "bored") {
+        brows = `
+          <line x1="-13" y1="-3" x2="-4.5" y2="-3" stroke="${ink}" stroke-width="1.8" stroke-linecap="round" />
+          <line x1="4.5" y1="-3" x2="13" y2="-3" stroke="${ink}" stroke-width="1.8" stroke-linecap="round" />
+        `;
+        eyes = `
+          <line x1="-12.5" y1="1.2" x2="-4.5" y2="1.2" stroke="${ink}" stroke-width="2.1" stroke-linecap="round" />
+          <circle cx="-8.5" cy="3.5" r="2.7" fill="${ink}" />
+          <line x1="4.5" y1="1.2" x2="12.5" y2="1.2" stroke="${ink}" stroke-width="2.1" stroke-linecap="round" />
+          <circle cx="8.5" cy="3.5" r="2.7" fill="${ink}" />
+        `;
+        mouth = `<path d="M -4.5,14.5 Q 0,12 4.5,14.5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />`;
+      } else if (expr === "sparkle") {
+        brows = `
+          <path d="M -13,-5 Q -8.5,-7.5 -4.5,-5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+          <path d="M 4.5,-5 Q 8.5,-7.5 13,-5" fill="none" stroke="${ink}" stroke-width="1.9" stroke-linecap="round" />
+        `;
+        eyes = `
+          <ellipse cx="-8.5" cy="2.5" rx="4.2" ry="4.9" fill="${ink}" />
+          <circle cx="-9.8" cy="0.6" r="1.8" fill="#ffffff" />
+          <circle cx="-7.1" cy="4.2" r="1" fill="#ffffff" />
+          <ellipse cx="8.5" cy="2.5" rx="4.2" ry="4.9" fill="${ink}" />
+          <circle cx="7.2" cy="0.6" r="1.8" fill="#ffffff" />
+          <circle cx="9.9" cy="4.2" r="1" fill="#ffffff" />
+        `;
+        mouth = `<path d="M -6,11.5 Q 0,19.5 6,11.5 Z" fill="#fb7185" stroke="${ink}" stroke-width="1.8" stroke-linejoin="round" />`;
+      } else if (expr === "determined") {
+        brows = `
+          <line x1="-13" y1="-5.5" x2="-4.5" y2="-3" stroke="${ink}" stroke-width="2.1" stroke-linecap="round" />
+          <line x1="13" y1="-5.5" x2="4.5" y2="-3" stroke="${ink}" stroke-width="2.1" stroke-linecap="round" />
+        `;
+        eyes = `
+          <ellipse cx="-8.5" cy="2.5" rx="3.8" ry="4.4" fill="${ink}" />
+          <circle cx="-9.6" cy="1" r="1.5" fill="#ffffff" />
+          <ellipse cx="8.5" cy="2.5" rx="3.8" ry="4.4" fill="${ink}" />
+          <circle cx="7.4" cy="1" r="1.5" fill="#ffffff" />
+        `;
+        mouth = `<path d="M -5,12.5 Q 0,18 5,12.5 Z" fill="#fb7185" stroke="${ink}" stroke-width="1.8" />`;
+      }
+
+      const glasses = id === "teacher"
+        ? `
+          <rect x="-14.5" y="-1.5" width="11.5" height="8" rx="2.2" fill="#ffffff" fill-opacity="0.3" stroke="${ink}" stroke-width="1.6" />
+          <rect x="3" y="-1.5" width="11.5" height="8" rx="2.2" fill="#ffffff" fill-opacity="0.3" stroke="${ink}" stroke-width="1.6" />
+          <line x1="-3" y1="2.5" x2="3" y2="2.5" stroke="${ink}" stroke-width="1.6" />
+        `
+        : "";
+
+      const faceDetails = `
+        ${brows}
+        ${eyes}
+        ${glasses}
+        <ellipse cx="-13" cy="8.5" rx="4.2" ry="2.3" fill="#ff9eb5" opacity="0.82" />
+        <ellipse cx="13" cy="8.5" rx="4.2" ry="2.3" fill="#ff9eb5" opacity="0.82" />
+        <circle cx="0" cy="7.5" r="0.9" fill="#d97706" opacity="0.6" />
+        ${mouth}
+        ${extras}
+      `;
+
+      // 5. FRONT HAIR LAYER (Solid full upper hair dome y = -27 to -6 + sculpted bangs & sideburns)
+      let frontHair = "";
+      if (id === "win") {
+        frontHair = `
+          <path d="M -22,-3 C -23,-19 -13,-27 0,-27 C 13,-27 23,-19 22,-3
+                   L 21.5,11 L 18.5,4 L 16,-4
+                   L 12,1 L 8,-5
+                   L 3,2 L -1,-5
+                   L -6,1 L -11,-5
+                   L -16,-3 L -18.5,4 L -21.5,11 Z"
+                fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+        `;
+      } else if (id === "krit") {
+        frontHair = `
+          <path d="M -21.5,-4 C -22.5,-19 -13,-27 -2,-27
+                   C -1,-32 4,-33 6,-26.5
+                   C 15,-25.5 22.5,-18 21.5,-4
+                   L 20.5,8 L 18,2 L 15,-5
+                   L 11.5,0 L 8,-6
+                   L 4.5,1 L 1,-6
+                   L -3,1 L -7,-6
+                   L -11,0 L -15,-5
+                   L -18,2 L -20.5,8 Z"
+                fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+        `;
+      } else if (id === "ton") {
+        frontHair = `
+          <path d="M -22,-3 C -23,-19 -13,-27 -1,-27
+                   C -4,-34 5,-36 6,-27.5
+                   C 3,-30 1,-28.5 2,-26.8
+                   C 14,-26 23,-18 22,-3
+                   L 21,9 L 18.5,3 L 15.5,-4
+                   L 11.5,1 L 7.5,-5
+                   L 3,1 L -1.5,-5
+                   L -6,1 L -10.5,-5
+                   L -15.5,-4 L -18.5,3 L -21,9 Z"
+                fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+        `;
+      } else if (id === "nok") {
+        frontHair = `
+          <path d="M -22,-3 C -23,-19 -13,-27 0,-27 C 13,-27 23,-19 22,-3
+                   L 21.5,12 L 18.5,4 L 16,-4
+                   L 12,0 L 8.5,-5
+                   L 4.5,0 L 0,-5
+                   L -4.5,0 L -8.5,-5
+                   L -12,0 L -16,-4
+                   L -18.5,4 L -21.5,12 Z"
+                fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+          <polygon points="-17,-14 -25,-19 -23,-10" fill="#a855f7" stroke="${ink}" stroke-width="1.6" stroke-linejoin="round" />
+          <circle cx="-17" cy="-14" r="2.2" fill="#c084fc" stroke="${ink}" stroke-width="1.4" />
+          <polygon points="17,-14 25,-19 23,-10" fill="#a855f7" stroke="${ink}" stroke-width="1.6" stroke-linejoin="round" />
+          <circle cx="17" cy="-14" r="2.2" fill="#c084fc" stroke="${ink}" stroke-width="1.4" />
+        `;
+      } else if (id === "ploy") {
+        frontHair = `
+          <path d="M -22,-3 C -23,-19 -13,-27 0,-27 C 13,-27 23,-19 22,-3
+                   L 21.5,14 L 18.5,4 L 16,-3
+                   L 9,-3 L 7,-6 L 5,-3
+                   L -4,-3 L -6,-6 L -8,-3
+                   L -16,-3 L -18.5,4 L -21.5,14 Z"
+                fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+          <rect x="10.5" y="-10.5" width="7.5" height="3.2" rx="1.2" transform="rotate(-12 14 -9)" fill="#ffffff" stroke="${ink}" stroke-width="1.5" />
+        `;
+      } else if (id === "teacher") {
+        frontHair = `
+          <path d="M -21.5,-3 C -22.5,-19 -13,-27 0,-27 C 13,-27 22.5,-19 21.5,-3
+                   L 20,7 L 17,-4
+                   Q 6,-8 -2,-3
+                   Q -10,-7 -17,-4
+                   L -20,7 Z"
+                fill="${hair}" stroke="${ink}" stroke-width="2.1" stroke-linejoin="round" />
+        `;
+      }
+
+      const sx = flipX ? -scale : scale;
+      return `
+        <g transform="translate(${x}, ${y}) scale(${sx}, ${scale})">
+          <g class="layer-back-hair">${backHair}</g>
+          <g class="layer-body">${armsBack}${neck}${uniformBody}${armsFront}</g>
+          <g class="layer-head">${head}</g>
+          <g class="layer-face-details">${faceDetails}</g>
+          <g class="layer-front-hair">${frontHair}</g>
+        </g>
+      `;
+    }
+
+    // ==================== RUBBER-BAND & FOOTBALL PROP HELPERS ====================
+    function renderBraidedRope(x1, y1, x2, y2, thickness = 5.5) {
+      return `
+        <g>
+          <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#1e293b" stroke-width="${thickness + 2.4}" stroke-linecap="round" />
+          <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#ef4444" stroke-width="${thickness}" stroke-linecap="round" />
+          <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#facc15" stroke-width="${thickness}" stroke-dasharray="10,6" />
+          <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#38bdf8" stroke-width="${thickness}" stroke-dasharray="6,10" stroke-dashoffset="8" />
+          <circle cx="${x1}" cy="${y1}" r="4.2" fill="#ffe2c8" stroke="#1e293b" stroke-width="2" />
+          <circle cx="${x2}" cy="${y2}" r="4.2" fill="#ffe2c8" stroke="#1e293b" stroke-width="2" />
+        </g>
+      `;
+    }
+
+    function renderFootball(x, y, r = 13) {
+      return `
+        <g transform="translate(${x}, ${y})">
+          <circle cx="0" cy="0" r="${r}" fill="#ffffff" stroke="#1e293b" stroke-width="2.3" />
+          <polygon points="0,${-r * 0.45} ${r * 0.42},${-r * 0.14} ${r * 0.26},${r * 0.36} ${-r * 0.26},${r * 0.36} ${-r * 0.42},${-r * 0.14}" fill="#1e293b" />
+          <line x1="0" y1="${-r * 0.45}" x2="0" y2="${-r}" stroke="#1e293b" stroke-width="1.6" />
+          <line x1="${r * 0.42}" y1="${-r * 0.14}" x2="${r * 0.92}" y2="${-r * 0.3}" stroke="#1e293b" stroke-width="1.6" />
+          <line x1="${-r * 0.42}" y1="${-r * 0.14}" x2="${-r * 0.92}" y2="${-r * 0.3}" stroke="#1e293b" stroke-width="1.6" />
+          <line x1="${r * 0.26}" y1="${r * 0.36}" x2="${r * 0.65}" y2="${r * 0.78}" stroke="#1e293b" stroke-width="1.6" />
+          <line x1="${-r * 0.26}" y1="${r * 0.36}" x2="${-r * 0.65}" y2="${r * 0.78}" stroke="#1e293b" stroke-width="1.6" />
+        </g>
+      `;
+    }
+
+    // ==================== POPULATE ALL SCENES ON LOAD ====================
+    function populateAllComicArtwork() {
+      // 1. Cover 5-Character Full-Body Lineup
+      const coverSvg = document.getElementById("coverLineupSvg");
+      if (coverSvg) {
+        coverSvg.innerHTML = `
+          <rect width="820" height="265" fill="#fef9c3" />
+          <g stroke="#fde047" stroke-width="15" stroke-opacity="0.65">
+            <line x1="410" y1="265" x2="30" y2="0" />
+            <line x1="410" y1="265" x2="215" y2="0" />
+            <line x1="410" y1="265" x2="410" y2="0" />
+            <line x1="410" y1="265" x2="605" y2="0" />
+            <line x1="410" y1="265" x2="790" y2="0" />
+          </g>
+          <ellipse cx="410" cy="242" rx="360" ry="14" fill="#fde68a" />
+          ${renderCharacter("krit", { x: 95, y: 66, scale: 1.48, expr: "smirk", pose: "idle" })}
+          ${renderCharacter("win",  { x: 252, y: 66, scale: 1.48, expr: "happy", pose: "waving" })}
+          ${renderCharacter("nok",  { x: 410, y: 66, scale: 1.48, expr: "happy", pose: "cheering" })}
+          ${renderCharacter("ploy", { x: 568, y: 66, scale: 1.48, expr: "happy", pose: "idle" })}
+          ${renderCharacter("ton",  { x: 725, y: 66, scale: 1.48, expr: "laugh", pose: "waving" })}
+          ${renderFootball(765, 226, 16)}
+        `;
+      }
+
+      // 2. Cast Cards Grid (Full-Body Portraits!)
+      const castGrid = document.getElementById("castCardsGrid");
+      if (castGrid) {
+        const castOrder = [
+          { id: "win", expr: "blush", pose: "scratching", bg: "bg-red-50" },
+          { id: "krit", expr: "smirk", pose: "pointing", bg: "bg-purple-50" },
+          { id: "nok", expr: "happy", pose: "jumping", bg: "bg-pink-50" },
+          { id: "ploy", expr: "happy", pose: "waving", bg: "bg-orange-50" },
+          { id: "ton", expr: "laugh", pose: "kicking", bg: "bg-sky-50" }
+        ];
+        castGrid.innerHTML = castOrder.map((c, idx) => {
+          const m = CHARACTER_META[c.id];
+          const spanClass = idx === 4 ? "sm:col-span-2 lg:col-span-1" : "";
+          return `
+            <div class="comic-panel animate-panel delay-${idx + 1} p-3.5 bg-gradient-to-br ${m.cardBg} flex items-center gap-3 ${spanClass}">
+              <svg viewBox="-46 -42 92 170" class="w-20 h-32 shrink-0 rounded-xl border-2 border-[#1e293b] ${c.bg}">
+                ${renderCharacter(c.id, { x: 0, y: 0, scale: 1.02, expr: c.expr, pose: c.pose })}
+              </svg>
+              <div>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <h4 class="font-bangers text-2xl ${m.titleColor}">${m.name}</h4>
+                  <span class="text-[10px] font-bold ${m.badgeBg} border border-[#1e293b] px-2 py-0.5 rounded-full">${m.badge}</span>
+                </div>
+                <p class="text-xs font-medium text-[#1e293b] mt-1 leading-snug">${m.desc}</p>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      // ==================== CHAPTER 1 PANELS ====================
+      document.getElementById("ch1p1").innerHTML = `
+        <rect width="440" height="300" fill="#fef9c3" />
+        <rect x="275" y="20" width="146" height="76" rx="4" fill="#14532d" stroke="#78350f" stroke-width="3.5" />
+        <text x="290" y="52" fill="#dcfce7" font-family="Patrick Hand" font-weight="bold" font-size="16">Class 3/2 • Morning</text>
+        <line x1="290" y1="68" x2="402" y2="68" stroke="#bbf7d0" stroke-width="2" stroke-dasharray="5,4" />
+        ${renderCharacter("krit", { x: 145, y: 155, scale: 1.55, expr: "smirk", pose: "phone" })}
+        <g transform="translate(262, 118)">
+          <rect x="0" y="0" width="154" height="104" rx="12" fill="#ffffff" stroke="#1e293b" stroke-width="3" />
+          <rect x="0" y="0" width="154" height="25" rx="9" fill="#2563eb" stroke="#1e293b" stroke-width="2.5" />
+          <text x="12" y="17" fill="#ffffff" font-family="Kanit" font-weight="700" font-size="11">f • Win's Profile</text>
+          <circle cx="24" cy="48" r="11" fill="#ffe2c8" stroke="#1e293b" stroke-width="2" />
+          <path d="M13,46 Q24,31 35,46 Z" fill="#1f2430" />
+          <text x="42" y="45" fill="#1e293b" font-family="Kanit" font-weight="700" font-size="10">Family Info</text>
+          <rect x="12" y="64" width="130" height="28" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2" />
+          <text x="20" y="82" fill="#dc2626" font-family="Kanit" font-weight="700" font-size="11">Mom's Name: Noi (หน่อย)</text>
+        </g>
+        <rect x="0" y="268" width="440" height="32" fill="#b45309" stroke="#1e293b" stroke-width="3" />
+      `;
+
+      document.getElementById("ch1p2").innerHTML = `
+        <rect width="440" height="242" fill="#fef3c7" />
+        <rect x="22" y="34" width="225" height="102" rx="4" fill="#14532d" stroke="#78350f" stroke-width="3.5" />
+        <text x="38" y="70" fill="#dcfce7" font-family="Kanit" font-weight="700" font-size="15">บทที่ ๔ : ภาษาไทย</text>
+        <text x="38" y="98" fill="#bbf7d0" font-family="Kanit" font-size="13">คำสุภาพและการขอร้อง</text>
+        <rect x="0" y="242" width="440" height="58" fill="#d97706" stroke="#1e293b" stroke-width="3" />
+        ${renderCharacter("teacher", { x: 305, y: 102, scale: 1.32, expr: "shock", pose: "teacherDrop" })}
+        <path d="M192,155 Q178,195 184,230" fill="none" stroke="#1e293b" stroke-width="2.4" stroke-dasharray="5,5" />
+        <g transform="translate(145, 232) rotate(-7)">
+          <rect x="0" y="0" width="76" height="22" rx="3" fill="#dc2626" stroke="#1e293b" stroke-width="2.6" />
+          <rect x="4" y="4" width="68" height="12" fill="#ffffff" stroke="#1e293b" stroke-width="1.4" />
+          <text x="12" y="13" font-size="8" font-weight="bold" fill="#1e293b">THAI LIT.</text>
+        </g>
+        <line x1="128" y1="238" x2="110" y2="226" stroke="#1e293b" stroke-width="2.6" stroke-linecap="round" />
+        <line x1="236" y1="234" x2="252" y2="222" stroke="#1e293b" stroke-width="2.6" stroke-linecap="round" />
+      `;
+
+      document.getElementById("ch1p3").innerHTML = `
+        <rect width="440" height="300" fill="#fef9c3" />
+        ${renderCharacter("teacher", { x: 280, y: 125, scale: 1.5, expr: "gentle", pose: "teacherPoint" })}
+        <g transform="translate(65, 210) rotate(-6)">
+          <rect x="0" y="0" width="84" height="24" rx="3" fill="#dc2626" stroke="#1e293b" stroke-width="2.6" />
+          <rect x="4" y="4" width="76" height="13" fill="#ffffff" stroke="#1e293b" stroke-width="1.4" />
+        </g>
+      `;
+
+      document.getElementById("ch1p4").innerHTML = `
+        <rect width="440" height="300" fill="#fae8ff" />
+        <g stroke="#d946ef" stroke-width="2.5" stroke-opacity="0.32">
+          <line x1="165" y1="165" x2="0" y2="25" />
+          <line x1="165" y1="165" x2="0" y2="165" />
+          <line x1="165" y1="165" x2="440" y2="35" />
+          <line x1="165" y1="165" x2="440" y2="265" />
+        </g>
+        ${renderCharacter("krit", { x: 175, y: 145, scale: 1.65, expr: "laugh", pose: "pointing" })}
+        <rect x="0" y="268" width="440" height="32" fill="#b45309" stroke="#1e293b" stroke-width="3" />
+      `;
+
+      document.getElementById("ch1p5").innerHTML = `
+        <rect width="880" height="280" fill="#fef3c7" />
+        <text x="150" y="102" font-family="Bangers" font-size="28" fill="#ea580c" transform="rotate(-6 150 102)">HAHAHA!</text>
+        <text x="355" y="92" font-family="Bangers" font-size="25" fill="#dc2626" transform="rotate(4 355 92)">NOI~!</text>
+        ${renderCharacter("krit", { x: 145, y: 142, scale: 1.42, expr: "laugh", pose: "pointing" })}
+        ${renderCharacter("ton",  { x: 295, y: 145, scale: 1.42, expr: "laugh", pose: "cheering" })}
+        ${renderCharacter("win",  { x: 645, y: 132, scale: 1.62, expr: "blush", pose: "scratching" })}
+        <rect x="0" y="246" width="880" height="34" fill="#b45309" stroke="#1e293b" stroke-width="3" />
+      `;
+
+      // ==================== CHAPTER 2 PANELS ====================
+      document.getElementById("ch2p1").innerHTML = `
+        <rect width="440" height="300" fill="#fef3c7" />
+        <rect x="16" y="34" width="126" height="26" rx="5" fill="#fde047" stroke="#1e293b" stroke-width="2.3" />
+        <text x="79" y="51" text-anchor="middle" font-family="Kanit" font-weight="700" font-size="11.5" fill="#991b1b">โรงอาหาร • Canteen</text>
+        ${renderCharacter("nok",  { x: 112, y: 136, scale: 1.42, expr: "happy", pose: "idle" })}
+        ${renderCharacter("ploy", { x: 315, y: 134, scale: 1.44, expr: "laugh", pose: "waving" })}
+        <g>
+          <!-- Braided colorful rubber-band coil hanging downward from Ploy's hand -->
+          <ellipse cx="288" cy="236" rx="8.5" ry="12" fill="none" stroke="#1e293b" stroke-width="6.5" />
+          <ellipse cx="288" cy="236" rx="8.5" ry="12" fill="none" stroke="#ef4444" stroke-width="4" />
+          <ellipse cx="288" cy="236" rx="8.5" ry="12" fill="none" stroke="#facc15" stroke-width="4" stroke-dasharray="6,5" />
+          <ellipse cx="288" cy="236" rx="8.5" ry="12" fill="none" stroke="#38bdf8" stroke-width="4" stroke-dasharray="4,9" />
+          <!-- Ploy's hand & fingers drawn on top gripping the top of the loop -->
+          <circle cx="288" cy="225" r="5" fill="#ffe2c8" stroke="#1e293b" stroke-width="2.2" />
+          <path d="M 284.5,224.5 Q 288,227 291.5,224.5" fill="none" stroke="#1e293b" stroke-width="1.6" stroke-linecap="round" />
+        </g>
+        <rect x="0" y="242" width="440" height="58" fill="#d97706" stroke="#1e293b" stroke-width="3" />
+        <ellipse cx="112" cy="245" rx="32" ry="9" fill="#ffffff" stroke="#1e293b" stroke-width="2.2" />
+      `;
+
+      document.getElementById("ch2p2").innerHTML = `
+        <rect width="440" height="220" fill="#bae6fd" />
+        <rect x="0" y="220" width="440" height="80" fill="#e7e5e4" stroke="#1e293b" stroke-width="2.5" />
+        ${renderCharacter("nok",  { x: 150, y: 138, scale: 1.48, expr: "confused", pose: "scratching" })}
+        ${renderCharacter("ploy", { x: 315, y: 140, scale: 1.48, expr: "happy", pose: "idle" })}
+      `;
+
+      document.getElementById("ch2p3").innerHTML = `
+        <rect width="440" height="200" fill="#bae6fd" />
+        <rect x="42" y="84" width="356" height="116" fill="#fef3c7" stroke="#1e293b" stroke-width="2.2" />
+        <polygon points="32,84 220,54 408,84" fill="#dc2626" stroke="#1e293b" stroke-width="2.2" />
+        <rect x="0" y="200" width="440" height="100" fill="#e7e5e4" stroke="#1e293b" stroke-width="2.5" />
+        ${renderCharacter("nok",  { x: 70,  y: 162, scale: 1.05, expr: "happy", pose: "holdAnkleRight" })}
+        ${renderCharacter("krit", { x: 370, y: 162, scale: 1.05, expr: "happy", pose: "holdAnkleLeft" })}
+        ${renderCharacter("ploy", { x: 220, y: 132, scale: 1.08, expr: "laugh", pose: "jumping" })}
+        ${renderBraidedRope(92, 274, 348, 274, 5.2)}
+      `;
+
+      document.getElementById("ch2p4").innerHTML = `
+        <rect width="440" height="210" fill="#bae6fd" />
+        <rect x="0" y="210" width="440" height="90" fill="#e7e5e4" stroke="#1e293b" stroke-width="2.5" />
+        ${renderCharacter("win",  { x: 52,  y: 164, scale: 0.98, expr: "happy", pose: "holdKneeRight" })}
+        ${renderCharacter("ploy", { x: 388, y: 164, scale: 0.98, expr: "happy", pose: "holdKneeLeft" })}
+        ${renderCharacter("nok",  { x: 220, y: 148, scale: 1.22, expr: "determined", pose: "crouching" })}
+        ${renderBraidedRope(68, 266, 372, 266, 5.6)}
+      `;
+
+      document.getElementById("ch2p5").innerHTML = `
+        <rect width="880" height="222" fill="#7dd3fc" />
+        <g stroke="#ffffff" stroke-width="3" stroke-opacity="0.7">
+          <line x1="440" y1="120" x2="180" y2="20" />
+          <line x1="440" y1="120" x2="700" y2="20" />
+          <line x1="440" y1="120" x2="150" y2="205" />
+          <line x1="440" y1="120" x2="730" y2="205" />
+        </g>
+        <rect x="0" y="222" width="880" height="58" fill="#e7e5e4" stroke="#1e293b" stroke-width="2.5" />
+        ${renderCharacter("win",  { x: 215, y: 145, scale: 1.05, expr: "happy", pose: "holdCheerRight" })}
+        ${renderCharacter("ploy", { x: 665, y: 145, scale: 1.05, expr: "laugh", pose: "holdCheerLeft" })}
+        ${renderBraidedRope(234, 244, 646, 244, 6.2)}
+        ${renderCharacter("nok",  { x: 440, y: 66,  scale: 1.25, expr: "laugh", pose: "jumping" })}
+      `;
+
+      // ==================== CHAPTER 3 PANELS (MALE PROTAGONIST = WIN) ====================
+      document.getElementById("ch3p1").innerHTML = `
+        <rect width="440" height="205" fill="#fdba74" />
+        <rect y="110" width="440" height="95" fill="#fde68a" />
+        <rect x="24" y="88" width="24" height="122" fill="#fef3c7" stroke="#1e293b" stroke-width="2.5" />
+        <rect x="392" y="88" width="24" height="122" fill="#fef3c7" stroke="#1e293b" stroke-width="2.5" />
+        <rect x="0" y="205" width="440" height="95" fill="#d6d3d1" stroke="#1e293b" stroke-width="2.5" />
+        <rect x="115" y="218" width="210" height="15" rx="4" fill="#b45309" stroke="#1e293b" stroke-width="2.6" />
+        <rect x="132" y="233" width="14" height="40" fill="#78350f" stroke="#1e293b" stroke-width="2.2" />
+        <rect x="294" y="233" width="14" height="40" fill="#78350f" stroke="#1e293b" stroke-width="2.2" />
+        <rect x="255" y="178" width="35" height="40" rx="8" fill="#1e293b" stroke="#1e293b" stroke-width="2.4" />
+        ${renderCharacter("win", { x: 195, y: 128, scale: 1.25, expr: "bored", pose: "sitting" })}
+      `;
+
+      document.getElementById("ch3p2").innerHTML = `
+        <rect width="440" height="175" fill="#fb923c" />
+        <rect y="95" width="440" height="80" fill="#fbbf24" />
+        <circle cx="348" cy="142" r="34" fill="#fef9c3" />
+        <rect x="0" y="175" width="440" height="125" fill="#65a30d" stroke="#1e293b" stroke-width="2.5" />
+        <polyline points="340,175 340,114 416,114 416,175" fill="none" stroke="#ffffff" stroke-width="4" />
+        ${renderCharacter("ton",  { x: 225, y: 126, scale: 1.08, expr: "laugh", pose: "running" })}
+        ${renderFootball(268, 240, 12)}
+        ${renderCharacter("krit", { x: 315, y: 122, scale: 0.96, expr: "happy", pose: "idle" })}
+        ${renderCharacter("win",  { x: 78,  y: 168, scale: 1.52, expr: "shock", pose: "idle" })}
+        <text x="115" y="138" font-family="Bangers" font-size="36" fill="#facc15" stroke="#1e293b" stroke-width="1.5">!</text>
+      `;
+
+      document.getElementById("ch3p3").innerHTML = `
+        <rect width="440" height="188" fill="#fdba74" />
+        <rect x="0" y="188" width="440" height="112" fill="#65a30d" stroke="#1e293b" stroke-width="2.5" />
+        ${renderCharacter("win", { x: 112, y: 132, scale: 1.32, expr: "nervous", pose: "scratching" })}
+        ${renderCharacter("ton", { x: 325, y: 130, scale: 1.32, expr: "laugh", pose: "waving" })}
+        ${renderFootball(268, 252, 16)}
+      `;
+
+      document.getElementById("ch3p4").innerHTML = `
+        <rect width="440" height="300" fill="#fef3c7" />
+        <g fill="#facc15" stroke="#1e293b" stroke-width="1.5">
+          <polygon points="395,104 400,116 412,121 400,126 395,138 390,126 378,121 390,116" />
+          <polygon points="275,118 278,126 286,129 278,132 275,140 272,132 264,129 272,126" />
+        </g>
+        ${renderCharacter("nok",  { x: 82,  y: 142, scale: 1.32, expr: "laugh", pose: "cheering" })}
+        ${renderCharacter("ploy", { x: 185, y: 144, scale: 1.32, expr: "happy", pose: "cheering" })}
+        ${renderCharacter("win",  { x: 335, y: 138, scale: 1.48, expr: "sparkle", pose: "idle" })}
+      `;
+
+      document.getElementById("ch3p5").innerHTML = `
+        <rect width="880" height="72" fill="#f97316" />
+        <rect y="72" width="880" height="64" fill="#fb923c" />
+        <rect y="136" width="880" height="56" fill="#facc15" />
+        <circle cx="755" cy="142" r="42" fill="#fef9c3" />
+        <rect x="0" y="192" width="880" height="103" fill="#65a30d" stroke="#1e293b" stroke-width="2.5" />
+        <polyline points="755,192 755,115 855,115 855,192" fill="none" stroke="#ffffff" stroke-width="5" />
+        ${renderCharacter("ton",  { x: 92,  y: 118, scale: 0.96, expr: "laugh", pose: "cheering" })}
+        ${renderCharacter("nok",  { x: 170, y: 118, scale: 0.96, expr: "laugh", pose: "cheering" })}
+        ${renderCharacter("ploy", { x: 248, y: 118, scale: 0.96, expr: "happy", pose: "cheering" })}
+        ${renderCharacter("win",  { x: 465, y: 114, scale: 1.35, expr: "determined", pose: "kicking" })}
+        ${renderFootball(615, 224, 19)}
+        <path d="M542,240 L578,232 M648,214 L692,200 M650,226 L698,222 M646,238 L690,244" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" />
+      `;
+    }
+
+    // ==================== STATE & NAVIGATION ====================
+    let currentPage = 0;
+    const totalPages = 4;
+    let isAllPagesScroll = false;
+    let soundEnabled = true;
+
+    const pageTitles = [
+      "Cover & Cast (Page 1 of 4)",
+      "Chapter 1: Teasing Friends (Page 2 of 4)",
+      "Chapter 2: Rubber-Band Games (Page 3 of 4)",
+      "Chapter 3: After School (Page 4 of 4)"
+    ];
+
+    // ==================== WEB AUDIO API COMIC SFX ====================
+    let audioCtx = null;
+    function getAudioCtx() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) audioCtx = new AudioContext();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playComicSound(type) {
+      if (!soundEnabled) return;
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+
+        if (type === 'flip') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(260, now);
+          osc.frequency.exponentialRampToValueAtTime(540, now + 0.08);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.08);
+        } else if (type === 'thud') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(140, now);
+          osc.frequency.exponentialRampToValueAtTime(38, now + 0.22);
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.22);
+        } else if (type === 'tease') {
+          [
+            { freq: 587.33, t: 0, d: 0.16 },
+            { freq: 493.88, t: 0.18, d: 0.22 }
+          ].forEach((note) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(note.freq, now + note.t);
+            gain.gain.setValueAtTime(0.14, now + note.t);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + note.t + note.d);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + note.t);
+            osc.stop(now + note.t + note.d);
+          });
+        } else if (type === 'laugh') {
+          [0, 0.11, 0.22].forEach((offset, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(520 - i * 45, now + offset);
+            osc.frequency.exponentialRampToValueAtTime(360 - i * 40, now + offset + 0.08);
+            gain.gain.setValueAtTime(0.11, now + offset);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + offset + 0.08);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + offset);
+            osc.stop(now + offset + 0.08);
+          });
+        } else if (type === 'boing') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(220, now);
+          osc.frequency.exponentialRampToValueAtTime(640, now + 0.14);
+          osc.frequency.exponentialRampToValueAtTime(360, now + 0.26);
+          gain.gain.setValueAtTime(0.14, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.26);
+        } else if (type === 'clap') {
+          [0, 0.14].forEach((offset) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(440, now + offset);
+            osc.frequency.exponentialRampToValueAtTime(150, now + offset + 0.08);
+            gain.gain.setValueAtTime(0.09, now + offset);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + offset + 0.08);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + offset);
+            osc.stop(now + offset + 0.08);
+          });
+        } else if (type === 'kick') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(200, now);
+          osc.frequency.exponentialRampToValueAtTime(46, now + 0.19);
+          gain.gain.setValueAtTime(0.24, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.19);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.19);
+        }
+      } catch (e) {
+        // Ignore audio errors
+      }
+    }
+
+    function triggerSfx(el, soundType) {
+      el.classList.remove('sfx-active');
+      void el.offsetWidth;
+      el.classList.add('sfx-active');
+      playComicSound(soundType);
+    }
+
+    function renderComicView() {
+      const pages = document.querySelectorAll('.comic-page');
+      const pills = document.querySelectorAll('.page-pill');
+      const dots = document.querySelectorAll('.page-dot');
+      const footer = document.getElementById('pageNavFooter');
+      const indicator = document.getElementById('pageIndicatorText');
+
+      pages.forEach((pageEl) => {
+        const idx = Number(pageEl.dataset.page);
+        if (isAllPagesScroll) {
+          pageEl.classList.remove('hidden');
+        } else {
+          if (idx === currentPage) {
+            pageEl.classList.remove('hidden');
+            pageEl.querySelectorAll('.comic-panel').forEach((panel) => {
+              panel.classList.remove('animate-panel');
+              void panel.offsetWidth;
+              panel.classList.add('animate-panel');
+            });
+          } else {
+            pageEl.classList.add('hidden');
+          }
+        }
+      });
+
+      pills.forEach((pill) => {
+        const pillIdx = Number(pill.dataset.pill);
+        if (!isAllPagesScroll && pillIdx === currentPage) {
+          pill.classList.add('bg-red-600', 'text-white');
+          pill.classList.remove('bg-white', 'text-[#1e293b]');
+        } else {
+          pill.classList.remove('bg-red-600', 'text-white');
+          pill.classList.add('bg-white', 'text-[#1e293b]');
+        }
+      });
+
+      dots.forEach((dot) => {
+        const dotIdx = Number(dot.dataset.dot);
+        if (dotIdx === currentPage) {
+          dot.classList.add('bg-red-600', 'w-5');
+          dot.classList.remove('bg-amber-200', 'w-2.5');
+        } else {
+          dot.classList.remove('bg-red-600', 'w-5');
+          dot.classList.add('bg-amber-200', 'w-2.5');
+        }
+      });
+
+      indicator.textContent = pageTitles[currentPage] || "";
+      document.getElementById('prevBtn').disabled = currentPage === 0;
+      document.getElementById('nextBtn').disabled = currentPage === totalPages - 1;
+
+      if (isAllPagesScroll) {
+        footer.classList.add('hidden');
+      } else {
+        footer.classList.remove('hidden');
+      }
+    }
+
+    function goToPage(index) {
+      if (index < 0 || index >= totalPages) return;
+      if (isAllPagesScroll) {
+        isAllPagesScroll = false;
+        updateViewModeButton();
+      }
+      currentPage = index;
+      playComicSound('flip');
+      renderComicView();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages - 1) goToPage(currentPage + 1);
+    }
+
+    function prevPage() {
+      if (currentPage > 0) goToPage(currentPage - 1);
+    }
+
+    function updateViewModeButton() {
+      const icon = document.getElementById('viewModeIcon');
+      const label = document.getElementById('viewModeLabel');
+      if (isAllPagesScroll) {
+        icon.textContent = '📖';
+        label.textContent = 'Single Page Reader';
+      } else {
+        icon.textContent = '📜';
+        label.textContent = 'All Pages Scroll';
+      }
+    }
+
+    function toggleViewMode() {
+      isAllPagesScroll = !isAllPagesScroll;
+      updateViewModeButton();
+      playComicSound('flip');
+      renderComicView();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleCultureDrawer(chapterNum) {
+      const drawer = document.getElementById(`cultureDrawer${chapterNum}`);
+      const arrow = document.getElementById(`drawerArrow${chapterNum}`);
+      if (!drawer) return;
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        if (arrow) arrow.textContent = '▲';
+      } else {
+        drawer.classList.add('hidden');
+        if (arrow) arrow.textContent = '▼';
+      }
+      playComicSound('flip');
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('sfxIcon').textContent = soundEnabled ? '🔊' : '🔇';
+      document.getElementById('sfxLabel').textContent = soundEnabled ? 'SFX: ON' : 'SFX: OFF';
+      if (soundEnabled) playComicSound('flip');
+    }
+
+    // Keyboard & Touch Swipe Navigation
+    document.addEventListener('keydown', (e) => {
+      if (!isAllPagesScroll) {
+        if (e.key === 'ArrowRight') nextPage();
+        if (e.key === 'ArrowLeft') prevPage();
+      }
+    });
+
+    let touchStartX = 0;
+    const stage = document.getElementById('comicStage');
+    stage.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    stage.addEventListener('touchend', (e) => {
+      if (isAllPagesScroll) return;
+      const deltaX = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(deltaX) > 65) {
+        if (deltaX < 0) nextPage();
+        else prevPage();
+      }
+    }, { passive: true });
+
+    // Execute immediately at bottom of body (plus DOMContentLoaded fallback) so sandboxed iframes never miss rendering
+    function initComicBook() {
+      populateAllComicArtwork();
+      renderComicView();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initComicBook);
+    } else {
+      initComicBook();
+    }
+  </script>
+</body>
+</html>
